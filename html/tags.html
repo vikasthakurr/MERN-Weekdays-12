@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Tags and Elements</title>
+  </head>
+  <body>
+    <!-- 
+        ====================================================================
+        HTML TAGS VS ELEMENTS
+        ====================================================================
+
+        1. WHAT IS AN HTML TAG?
+           - A tag is a keyword enclosed in angle brackets, e.g., <p>.
+           - Tags are used to mark the start and end of an element.
+           - Opening tag: <tagname> (e.g., <h1>)
+           - Closing tag: </tagname> (e.g., </h1>) - Notice the forward slash.
+
+        2. WHAT IS AN HTML ELEMENT?
+           - An element is the collection of the Start Tag, the Content, and the End Tag.
+           - Formula: Element = Start Tag + Content + End Tag
+           - Example: 
+             <h1>        Hello World        </h1>
+             ^           ^                  ^
+             Start Tag   Content            End Tag
+             |_____________________________________|
+                            Element
+
+        3. TYPES OF ELEMENTS:
+           A. CONTAINER TAGS (Paired Tags)
+              - Have both opening and closing tags.
+              - Example: <div>...</div>, <p>...</p>, <b>...</b>
+           
+           B. VOID ELEMENTS (Empty/Self-Closing Tags)
+              - Have only an opening tag. They do not hold content between tags.
+              - Example: <br> (break), <hr> (horizontal rule), <img /> (image).
+              - In HTML5, the trailing slash is optional (e.g., <br> vs <br />).
+
+        4. ATTRIBUTES
+           - Tags can have attributes which provide additional information.
+           - Attributes are always specified in the Start Tag.
+           - Format: name="value"
+           - Example: <a href="https://google.com">Link</a> 
+             (here 'href' is the attribute name and 'https://google.com' is the value).
+    -->
+
+    <!-- EXAMPLES OF TAGS AND ELEMENTS -->
+
+    <!-- Heading Elements (h1 to h6) -->
+    <h1>This is a Main Heading (h1)</h1>
+    <h2>This is a Sub Heading (h2)</h2>
+
+    <!-- Paragraph Element -->
+    <p>
+      This is a paragraph element. It contains text. The browser automatically
+      adds some margin before and after a paragraph.
+    </p>
+
+    <!-- Formatting Tags (Container Tags) -->
+    <p>
+      This is normal text. <br />
+      <b>This text is Bold (using b tag).</b> <br />
+      <strong>This text is Strong (important).</strong> <br />
+      <i>This text is Italic (using i tag).</i> <br />
+      <em>This text is Emphasized.</em> <br />
+      <mark>This text is Marked/Highlighted.</mark>
+    </p>
+
+    <!-- Void Elements (Self-closing) Examples -->
+
+    <!-- Horizontal Rule <hr> creates a thematic break (line) -->
+    <hr />
+
+    <!-- Line Break <br> forces a new line -->
+    <p>First Line.<br />Second Line (after br tag).</p>
+
+    <!-- Image <img /> (requires src and alt attributes) -->
+    <!-- Note: img is a void element, it doesn't wrap text, it embeds an image. -->
+    <img src="https://via.placeholder.com/150" alt="Placeholder Image" />
+
+    <!-- 
+        NESTED ELEMENTS
+        - Elements can be nested (elements inside other elements).
+        - Proper nesting is critical: The tag opened last must be closed first.
+        - Correct: <p> <b> Bold Text </b> </p>
+        - Incorrect: <p> <b> Bold Text </p> </b>
+    -->
+    <div>
+      <h3>Container Div</h3>
+      <p>This paragraph is <span>inside a span inside a div</span>.</p>
+    </div>
+    <!-- 
+        ====================================================================
+        MULTIMEDIA TAGS
+        ====================================================================
+        HTML5 introduced dedicated tags to easily embed media.
+    -->
+    <hr />
+    <h2>Multimedia Tags</h2>
+
+    <!-- 
+        1. IMAGE TAG <img>
+           - Used to embed images.
+           - Attributes:
+             - src: Path to the image file (URL or local path).
+             - alt: Alternative text (shown if image fails to load + read by screen readers).
+             - width/height: Dimensions of the image.
+    -->
+    <h3>Image</h3>
+    <img
+      src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg"
+      alt="Two cute puppies"
+      width="300"
+    />
+
+    <!-- 
+        2. AUDIO TAG <audio>
+           - Used to embed sound content.
+           - Attributes:
+             - controls: Adds play/pause/volume buttons.
+             - autoplay: Starts playing automatically (often blocked by browsers).
+             - loop: Replays the audio when it ends.
+             - muted: Starts the audio muted.
+    -->
+    <h3>Audio</h3>
+    <!-- Simple way -->
+    <audio src="dummy-audio.mp3" controls></audio>
+
+    <!-- Robust way (multiple sources for browser compatibility) -->
+    <!-- 
+    <audio controls>
+        <source src="sound.mp3" type="audio/mpeg">
+        <source src="sound.ogg" type="audio/ogg">
+        Your browser does not support the audio element.
+    </audio>
+    -->
+
+    <!-- 
+        3. VIDEO TAG <video>
+           - Used to embed video content.
+           - Same attributes as Audio (controls, autoplay, loop, muted) + poster.
+           - poster: An image shown while the video is downloading/before playing.
+    -->
+    <h3>Video</h3>
+    <video width="320" height="240" controls>
+      <!-- <source src="movie.mp4" type="video/mp4"> -->
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- 
+        ====================================================================
+        PREFORMATTED TEXT <pre>
+        ====================================================================
+        - The <pre> tag defines preformatted text.
+        - Text inside <pre> allows specific whitespace and line breaks.
+        - It is displayed in a fixed-width font (usually Courier).
+        - Great for displaying code snippets or poetry.
+    -->
+    <h2>Preformatted Text</h2>
+    <p>Normal HTML ignores extra spaces and line breaks.</p>
+
+    <pre>
+    But the pre tag
+          preserves        spaces
+    and
+          line breaks.
+    </pre>
+
+    <!-- 
+        ====================================================================
+        BLOCK-LEVEL VS INLINE ELEMENTS
+        ====================================================================
+        
+        1. BLOCK-LEVEL ELEMENTS
+           - Always start on a new line.
+           - Take up the full width available (stretches to left and right).
+           - Examples: <div>, <h1>-<h6>, <p>, <form>, <header>, <footer>, <section>.
+        
+        2. INLINE ELEMENTS
+           - Do not start on a new line.
+           - Only take up as much width as necessary.
+           - Examples: <span>, <a>, <img>, <b>, <i>.
+    -->
+    <hr />
+    <h2>Block vs Inline</h2>
+
+    <!-- Block Element Example -->
+    <div
+      style="background-color: lightblue; padding: 5px; border: 1px solid blue"
+    >
+      I am a DIV. I am a Block-level element. I take full width.
+    </div>
+    <div
+      style="background-color: lightblue; padding: 5px; border: 1px solid blue"
+    >
+      I am another DIV on a new line.
+    </div>
+
+    <!-- Inline Element Example -->
+    <span style="background-color: yellow; border: 1px solid orange"
+      >I am a SPAN (Inline).</span
+    >
+    <span style="background-color: yellow; border: 1px solid orange"
+      >I sit next to my neighbor.</span
+    >
+
+    <!-- 
+        ====================================================================
+        SEMANTIC VS NON-SEMANTIC ELEMENTS
+        ====================================================================
+        
+        1. NON-SEMANTIC ELEMENTS
+           - Tells nothing about its content.
+           - Just generic containers.
+           - Examples: <div>, <span>.
+           
+        2. SEMANTIC ELEMENTS
+           - Clearly describes its meaning to both the browser and the developer.
+           - Important for SEO (Search Engines) and Accessibility.
+           - Examples: 
+             - <header>: Top of a page or section.
+             - <nav>: Navigation links.
+             - <main>: Main content.
+             - <article>: Independent, self-contained content (blog post).
+             - <aside>: Content aside from the content (sidebar).
+             - <footer>: Footer of a page or section.
+    -->
+    <hr />
+    <h2>Semantic Elements Layout Example</h2>
+
+    <header style="background: #ccc; padding: 10px">
+      This is a &lt;header&gt;
+    </header>
+
+    <nav style="background: #e4e4e4; padding: 10px">
+      This is a &lt;nav&gt; (Link 1 | Link 2)
+    </nav>
+
+    <section style="padding: 10px; border: 1px dashed gray; margin: 10px 0">
+      This is a &lt;section&gt;
+      <article style="background: #f9f9f9; padding: 5px; margin: 5px">
+        This is an &lt;article&gt; inside the section.
+      </article>
+    </section>
+
+    <footer style="background: #ccc; padding: 10px">
+      This is a &lt;footer&gt;
+    </footer>
+  </body>
+</html>

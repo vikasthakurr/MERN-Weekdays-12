@@ -1,44 +1,75 @@
+<!-- 
+  
+    1. WHAT IS HTML?
+       - HTML stands for HyperText Markup Language.
+       - It is the standard markup language for creating Web pages.
+       - HTML describes the structure of a Web page using markup.
+       - HTML elements are the building blocks of HTML pages (e.g., headings, paragraphs, links).
+
+    2. HTML STRUCTURE:
+       - An HTML document consists of a tree of elements.
+       - Elements are defined by tags involved in angle brackets, like <html>.
+       - Most elements have an opening tag (e.g., <p>) and a closing tag (e.g., </p>).
+       - Some elements are self-closing or void elements (e.g., <br />, <img />).
+
+    3. THE BOILERPLATE EXPLAINED BELOW:
+       - The code structure you see (DOCTYPE, html, head, body) is called the "boilerplate".
+       - It is the standard skeleton required for every valid HTML document.
+-->
+
+<!-- 
+    <!DOCTYPE html>
+    - This is the Document Type Declaration.
+    - It tells the browser that this document is an HTML5 document.
+    - It helps the browser render the webpage correctly in "standards mode".
+    - It is NOT case sensitive, but customarily written in uppercase.
+-->
 <!DOCTYPE html>
+
+<!-- 
+    <html lang="en">
+    - The <html> element is the root element of the page. All other elements are inside it.
+    - The 'lang' attribute specifies the language of the document (inside the string "en" for English).
+    - This is important for accessibility (screen readers) and search engines.
+-->
 <html lang="en">
+  <!-- 
+      <head>
+      - The <head> element contains meta-information about the HTML page.
+      - Content inside <head> is NOT displayed on the visible page itself.
+      - It includes the title, character set, responsive settings, scripts, and stylesheets.
+  -->
   <head>
+    <!-- 
+        <meta charset="UTF-8" />
+        - This meta tag specifies the character encoding for the HTML document.
+        - UTF-8 is the standard encoding that supports almost all characters and symbols in the world.
+        - Without this, some special characters (like emojis or foreign letters) might display incorrectly.
+    -->
     <meta charset="UTF-8" />
+
+    <!-- 
+        <meta name="viewport" ... />
+        - This tag is crucial for Responsive Web Design (making sites look good on phones).
+        - width=device-width: Sets the width of the page to follow the screen-width of the device.
+        - initial-scale=1.0: Sets the initial zoom level when the page is first loaded.
+    -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 
+        <title>
+        - Sets the title of the web page.
+        - This is shown in the browser's title bar or the page's tab.
+        - It is also the title used when the page is bookmarked or displayed in search engine results.
+    -->
     <title>vikas</title>
   </head>
-  <body>
-    <h1>heading 1</h1>
-    <h2>sub heading</h2>
-    <h3>heading 3</h3>
-    <h4>heading 4</h4>
-    <h5>heading 5</h5>
-    <h6>heading 6</h6>
 
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, officia
-      fugiat. Veniam pariatur vitae doloribus soluta, blanditiis corporis
-      laudantium quae consectetur id quia saepe voluptas modi quos possimus
-      itaque maxime ut adipisci ex ipsa minima facere fuga, incidunt iste est.
-      Officiis unde dolor tempora blanditiis minus dolorum nulla quae
-      repudiandae.
-    </p>
-
-    <pre>To,
-        Vikas kumar thakur,
-        delhi,              vikas
-    </pre>
-
-    <img src="https://images.pexels.com/photos/33069798/pexels-photo-33069798.jpeg" alt="these are ducks" width="400px">
-
-    <audio src="abc.mp3" controls></audio>
-    <!-- <video src="abc.mp4" controls loop muted autoplay></video//images.pexels.com/photos/33069798/pexels-photo-33069798.jpedeo>
-      -->
-    <video>
-        <source>
-        <source>
-    </video>
-
-
-    <!-- <h1>heading 1</h1><h1>heading 2</h1> -->
-     <span>this is span1</span> <span>span 2 </span>
-  </body>
+  <!-- 
+      <body>
+      - The <body> element defines the document's body.
+      - It is a container for ALL the visible contents of the web page.
+      - Examples: headings, paragraphs, images, hyperlinks, tables, lists, etc.
+  -->
+  <body></body>
 </html>
