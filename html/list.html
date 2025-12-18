@@ -6,6 +6,20 @@
     <title>Document</title>
   </head>
   <body>
+    <!-- 
+      HTML LISTS
+      - HTML offers three main ways to specify lists of information.
+      - Lists must contain one or more list elements.
+      - Lists can contain other lists (nested lists).
+    -->
+
+    <!-- 
+      1. UNORDERED LIST (<ul>)
+      - An unordered list starts with the <ul> tag.
+      - Each list item starts with the <li> tag.
+      - The list items will be marked with bullets (small black circles) by default.
+      - Common Use Cases: Navigation menus, lists of items where order doesn't matter (e.g., shopping list).
+    -->
     <!-- unordered list -->
     <ul>
       <li>item-1</li>
@@ -13,6 +27,22 @@
       <li>item-3</li>
     </ul>
 
+    <!-- 
+      2. ORDERED LIST (<ol>)
+      - An ordered list starts with the <ol> tag.
+      - Each list item starts with the <li> tag.
+      - The list items will be marked with numbers by default.
+      - Attributes:
+          - type: Specifies the kind of marker to use
+              - "1" (default) -> decimal numbers (1, 2, 3)
+              - "a" -> lowercase letters (a, b, c)
+              - "A" -> uppercase letters (A, B, C)
+              - "i" -> lowercase roman numerals (i, ii, iii)
+              - "I" -> uppercase roman numerals (I, II, III)
+          - start: Specifies the start value of the ordered list counting.
+          - reversed: Specifies that the list order should be descending (9, 8, 7...).
+      - Common Use Cases: Recipes, top 10 lists, instructions where step order matters.
+    -->
     <!-- ordered list -->
     <ol type="1" start="2">
       <li>item-1</li>
@@ -20,6 +50,14 @@
       <li>item-3</li>
     </ol>
 
+    <!-- 
+      3. DESCRIPTION / DEFINITION LIST (<dl>)
+      - A description list is a list of terms, with a description of each term.
+      - <dl> tag defines the description list.
+      - <dt> tag defines the term (name).
+      - <dd> tag defines the data (description).
+      - Common Use Cases: Glossaries, metadata (key-value pairs), displaying questions and answers.
+    -->
     <!-- desc list -->
     <dl>
       <dt>item-1</dt>
