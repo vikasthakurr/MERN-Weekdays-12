@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <fieldset>
+      <fieldset>
+        <legend>Personal Information</legend>
+        <label for="Fname">FullName:</label>
+        <input
+          type="text"
+          name="fname"
+          id=""
+          placeholder="enter your full name"
+        />
+        <br />
+        <label for="parentname">Parent Name:</label>
+        <input
+          type="text"
+          name="parentname"
+          id=""
+          placeholder="enter your parent name"
+        />
+      </fieldset>
+      <fieldset>
+        <legend>Contact Details</legend>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="" placeholder="enter your email" />
+        <br />
+        <label for="Mobile">Mobile No:</label>
+        <input
+          type="text"
+          name="mobile"
+          placeholder="enter your valid mobile number"
+        />
+      </fieldset>
+      <fieldset>
+        <legend>Addtional Info</legend>
+        <label for="Food">Food Choice</label>
+        <select name="food" id="">
+          <option value="veg">Veg</option>
+          <option value="nonveg">Non veg</option>
+          <option value="vegan">Vegan</option>
+        </select>
+      </fieldset>
+      <br />
+      <input type="submit" value="Submit" />
+    </fieldset>
+    <!-- 
+    HTML FORMS NOTES:
+
+    1. <form> Element:
+       - The container for all form controls.
+       - Attributes:
+         * action: URL where form data is sent upon submission.
+         * method: HTTP method used (GET for queries, POST for secure data like passwords).
+       - Example: <form action="/submit-data" method="POST"> ... </form>
+
+    2. <input> Element:
+       - The most used form element. Can be displayed in many ways depending on 'type':
+         * type="text": Standard single-line text input.
+         * type="password": Characters are masked (dots/asterisks).
+         * type="email": For email addresses (basic validation).
+         * type="number": For numeric input.
+         * type="radio": "Select one" choice (all radio buttons in a group must share the same 'name').
+         * type="checkbox": "Select multiple" choices.
+         * type="date": Date picker.
+         * type="file": File upload.
+         * type="submit": Button to submit the form.
+
+    3. <label> Element:
+       - Defines a label for a form element.
+       - Click on the label to focus the input.
+       - Linking: The 'for' attribute of <label> should match the 'id' of the <input>.
+
+    4. <select> and <option>:
+       - Creates a drop-down list.
+       - <select> is the container, <option> defines the items.
+
+    5. <textarea>:
+       - Defines a multi-line text input control (e.g., for comments/messages).
+
+    6. <button>:
+       - A clickable button. Can be type="submit", "reset", or "button".
+
+    7. Grouping Elements:
+       - <fieldset>: Groups related elements in a form (draws a box around them).
+       - <legend>: Defines a caption for the <fieldset>.
+
+    8. Important Attributes:
+       - name: ESSENTIAL. The name of the data key sent to the server. If missing, data isn't sent.
+       - id: For CSS styling, JS manipulation, and linking labels.
+       - list: Refers to a <datalist> for auto-complete options.
+       - placeholder: Short hint text displayed in the input before user types.
+       - required: Specifies that an input field must be filled out.
+       - value: The initial value (or the value sent for buttons/options).
+       - readonly / disabled: Limits user interaction.
+  --></body>
+</html>
