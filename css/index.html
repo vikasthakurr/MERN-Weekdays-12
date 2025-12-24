@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="style1.css" /> -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
+        /*
+        ========================================
+        CSS SELECTORS - COMPLETE GUIDE
+        ========================================
+        
+        WHAT ARE SELECTORS?
+        -------------------
+        Selectors are patterns used to select and target HTML elements that you want to style.
+        They are the foundation of CSS and determine which elements your styles will apply to.
+        
+        
+        ========================================
+        1. BASIC SELECTORS
+        ========================================
+        
+        A. UNIVERSAL SELECTOR (*)
+        -------------------------
+        Definition: Selects ALL elements on the page.
+        Syntax: * { property: value; }
+        
+        Example:
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        Use Case: Resetting default browser styles
+        Performance: Can be slow on large pages, use sparingly
+        
+        
+        B. ELEMENT/TYPE SELECTOR
+        ------------------------
+        Definition: Selects all elements of a specific HTML tag type.
+        Syntax: elementName { property: value; }
+        
+        Examples:
+        h1 { color: blue; }           - Selects all <h1> elements
+        p { font-size: 16px; }        - Selects all <p> elements
+        div { background: white; }    - Selects all <div> elements
+        
+        Use Case: Applying consistent styles to all elements of the same type
+        Specificity: Low (1 point)
+        
+        
+        C. CLASS SELECTOR (.)
+        ---------------------
+        Definition: Selects all elements with a specific class attribute.
+        Syntax: .className { property: value; }
+        
+        HTML: <div class="container">Content</div>
+        CSS: .container { width: 100%; }
+        
+        Multiple Classes:
+        HTML: <p class="text highlight">Text</p>
+        CSS: 
+        .text { font-size: 16px; }
+        .highlight { background: yellow; }
+        
+        Use Case: Styling multiple elements that share common characteristics
+        Specificity: Medium (10 points)
+        Best Practice: Most commonly used selector, reusable and flexible
+        
+        
+        D. ID SELECTOR (#)
+        ------------------
+        Definition: Selects a single unique element with a specific id attribute.
+        Syntax: #idName { property: value; }
+        
+        HTML: <div id="header">Header</div>
+        CSS: #header { background: navy; }
+        
+        Important Rules:
+        - IDs must be unique on a page (only one element can have a specific ID)
+        - More specific than classes
+        - Use for unique elements like main header, footer, specific sections
+        
+        Use Case: Styling unique, one-time elements
+        Specificity: High (100 points)
+        Best Practice: Use sparingly, prefer classes for reusability
+        
+        
+        E. GROUPING SELECTOR (,)
+        ------------------------
+        Definition: Applies the same styles to multiple selectors.
+        Syntax: selector1, selector2, selector3 { property: value; }
+        
+        Example:
+        h1, h2, h3 {
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        
+        Use Case: Reducing code repetition when multiple elements need same styles
+        
+        
+        ========================================
+        2. COMBINATOR SELECTORS
+        ========================================
+        
+        A. DESCENDANT SELECTOR (space)
+        ------------------------------
+        Definition: Selects all elements that are descendants (children, grandchildren, etc.) 
+        of a specified element.
+        Syntax: ancestor descendant { property: value; }
+        
+        Example:
+        div p { color: red; }
+        - Selects all <p> elements inside any <div>, at any nesting level
+        
+        HTML:
+        <div>
+            <p>Selected</p>
+            <section>
+                <p>Also Selected</p>
+            </section>
+        </div>
+        
+        
+        B. CHILD SELECTOR (>)
+        ---------------------
+        Definition: Selects elements that are direct children (one level down) of a specified element.
+        Syntax: parent > child { property: value; }
+        
+        Example:
+        div > p { color: blue; }
+        - Selects only <p> elements that are direct children of <div>
+        
+        HTML:
+        <div>
+            <p>Selected</p>           <!-- Selected -->
+            <section>
+                <p>Not Selected</p>   <!-- NOT Selected -->
+            </section>
+        </div>
+        
+        
+        C. ADJACENT SIBLING SELECTOR (+)
+        --------------------------------
+        Definition: Selects an element that is immediately after another specific element 
+        (same parent, directly following).
+        Syntax: element1 + element2 { property: value; }
+        
+        Example:
+        h1 + p { font-weight: bold; }
+        - Selects the first <p> that comes immediately after an <h1>
+        
+        HTML:
+        <h1>Heading</h1>
+        <p>Selected</p>        <!-- Selected -->
+        <p>Not Selected</p>    <!-- NOT Selected -->
+        
+        
+        D. GENERAL SIBLING SELECTOR (~)
+        -------------------------------
+        Definition: Selects all elements that are siblings (same parent) and come after 
+        a specified element.
+        Syntax: element1 ~ element2 { property: value; }
+        
+        Example:
+        h1 ~ p { color: gray; }
+        - Selects all <p> elements that are siblings of and come after <h1>
+        
+        HTML:
+        <h1>Heading</h1>
+        <p>Selected</p>        <!-- Selected -->
+        <p>Selected</p>        <!-- Selected -->
+        <div>Not Selected</div>
+        
+        
+        ========================================
+        3. ATTRIBUTE SELECTORS
+        ========================================
+        
+        Definition: Selects elements based on their attributes or attribute values.
+        
+        A. [attribute]
+        --------------
+        Selects elements with a specific attribute, regardless of value.
+        Example: [disabled] { opacity: 0.5; }
+        
+        
+        B. [attribute="value"]
+        ----------------------
+        Selects elements with an attribute that exactly matches the value.
+        Example: input[type="text"] { border: 1px solid blue; }
+        
+    
+        
+        
+        ========================================
+        4. PSEUDO-CLASSES
+        ========================================
+        
+        Definition: Pseudo-classes select elements based on their STATE or POSITION, 
+        not their attributes or content.
+        Syntax: selector:pseudo-class { property: value; }
+        
+        
+        A. USER ACTION PSEUDO-CLASSES
+        -----------------------------
+        
+        :hover
+        ------
+        Applies when user hovers mouse over an element.
+        Example: 
+        a:hover { color: red; }
+        button:hover { background: blue; }
+        
+        
+        
+
+        
+        
+        
+        
+        
+        :nth-child(n)
+        -------------
+        Selects elements based on their position among siblings.
+        Examples:
+        li:nth-child(2) { color: red; }        - Selects 2nd <li>
+        li:nth-child(odd) { background: #f0f0f0; }  - Selects odd <li> elements
+        li:nth-child(even) { background: white; }   - Selects even <li> elements
+        li:nth-child(3n) { color: blue; }      - Selects every 3rd <li>
+        li:nth-child(3n+1) { color: green; }   - Selects 1st, 4th, 7th, etc.
+        
+        
+        :nth-last-child(n)
+        ------------------
+        Same as nth-child but counts from the end.
+        Example: 
+        li:nth-last-child(2) { color: orange; }  - Selects 2nd from last
+        
+
+input[type="text"]{
+    color: red;
+    font-style: italic;
+    font-size: 40px;
+}
+input::placeholder{
+    color: blue;
+}
+.green:hover{
+    color: yellow;
+    font-size: 50px;
+}
+ul li::marker{
+    color: #BF9FBC
+    /* font-size: 30; */
+/* } */
+/* #me::after{
+content: " Thakur and ";
+}
+#me::before{
+    content: "My Name is ";
+} */
+#me{
+    font-size: 70px;
+   /* font-family: "Jersey 10", sans-serif; */
+    font-family: sans-serif cursive;
+  font-weight: 400;
+  font-style: normal;
+
+}
+    </style>
+  </head>
+  <body>
+    <!-- <h1 class="green">hii</h1>
+  
+    <h2 class="green">vikas thakur</h2>
+    <p class="green">this is para</p> -->
+    <!-- <h2>h</h2> -->
+    <!-- <img src="" alt="">
+    <input type="text" placeholder="enter your name">
+
+
+    <ul>
+        <li>item-1</li>
+        <li>item-2</li>
+    </ul> -->
+
+    <p id="me">Vikas</p>
+  </body>
+</html>
+
+  </body>
+</html>

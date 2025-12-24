@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Introduction - Foundations & Definitions</title>
+  </head>
+  <body>
+    <!--
+    ========================================
+    CSS INTRODUCTION - FOUNDATIONS OF CSS
+    ========================================
+    
+    WHAT IS CSS?
+    ------------
+    CSS stands for Cascading Style Sheets.
+    It is a stylesheet language used to describe the presentation of a document written in HTML.
+    CSS controls how HTML elements are displayed on screen, paper, or in other media.
+    
+    PURPOSE OF CSS:
+    ---------------
+    1. Separation of Concerns: Separates content (HTML) from presentation (CSS)
+    2. Consistency: Apply consistent styling across multiple pages
+    3. Maintainability: Easier to update and maintain website appearance
+    4. Flexibility: Change the look of an entire website by modifying one CSS file
+    5. Accessibility: Better control over layout for different devices and screen sizes
+    
+    
+    ========================================
+    FUNDAMENTAL CONCEPTS OF CSS
+    ========================================
+    
+    1. SELECTORS
+    ------------
+    Definition: Selectors are patterns used to select the HTML elements you want to style.
+    
+    Types of Selectors:
+    - Element Selector: Targets HTML elements by tag name (e.g., p, h1, div)
+    - Class Selector: Targets elements with a specific class attribute (e.g., .classname)
+    - ID Selector: Targets a unique element with a specific id attribute (e.g., #idname)
+    - Universal Selector: Targets all elements (e.g., *)
+    - Attribute Selector: Targets elements based on attributes (e.g., [type="text"])
+    - Pseudo-class Selector: Targets elements in a specific state (e.g., :hover, :focus)
+    - Pseudo-element Selector: Targets specific parts of elements (e.g., ::before, ::after)
+    - Combinator Selectors: Combines multiple selectors (e.g., descendant, child, sibling)
+    
+    
+    2. PROPERTIES & VALUES
+    ----------------------
+    Definition: Properties are the aspects of the element you want to change (e.g., color, font-size).
+    Values are the settings you apply to those properties (e.g., red, 16px).
+    
+    Syntax: property: value;
+    Example: color: blue; font-size: 20px;
+    
+    
+    3. THE CASCADE
+    --------------
+    Definition: The "Cascading" in CSS refers to the algorithm that determines which styles 
+    are applied when multiple rules target the same element.
+    
+    Order of Importance (from highest to lowest):
+    1. Inline styles (style attribute in HTML)
+    2. IDs (#idname)
+    3. Classes, attributes, and pseudo-classes (.classname, [type="text"], :hover)
+    4. Elements and pseudo-elements (p, div, ::before)
+    
+    Note: !important declaration overrides normal cascade rules (use sparingly!)
+    
+    
+    4. SPECIFICITY
+    --------------
+    Definition: Specificity is a weight that determines which CSS rule is applied when 
+    multiple rules could apply to the same element.
+    
+    Specificity Calculation:
+    - Inline styles: 1000 points
+    - IDs: 100 points each
+    - Classes, attributes, pseudo-classes: 10 points each
+    - Elements, pseudo-elements: 1 point each
+    
+    Example: #header .nav li (100 + 10 + 1 = 111 specificity)
+    
+    
+    5. INHERITANCE
+    --------------
+    Definition: Some CSS properties are inherited by child elements from their parent elements.
+    
+    Inherited Properties (examples):
+    - color
+    - font-family
+    - font-size
+    - line-height
+    - text-align
+    
+    Non-Inherited Properties (examples):
+    - margin
+    - padding
+    - border
+    - background
+    - width, height
+    
+    Note: You can force inheritance using the 'inherit' value
+    
+    
+    6. THE BOX MODEL
+    ----------------
+    Definition: Every HTML element is treated as a rectangular box. The CSS box model 
+    describes how these boxes are structured.
+    
+    Components (from inside out):
+    1. Content: The actual content of the element (text, images, etc.)
+    2. Padding: Space between content and border (transparent)
+    3. Border: A border surrounding the padding
+    4. Margin: Space outside the border (transparent, separates element from others)
+    
+    Box-sizing Property:
+    - content-box (default): Width/height applies only to content
+    - border-box: Width/height includes content, padding, and border
+    
+    
+    7. DISPLAY PROPERTY
+    -------------------
+    Definition: The display property specifies how an element is displayed on the page.
+    
+    Common Values:
+    - block: Element takes full width available, starts on new line (e.g., div, p, h1)
+    - inline: Element takes only necessary width, doesn't start on new line (e.g., span, a)
+    - inline-block: Hybrid - flows inline but can have width/height
+    - none: Element is not displayed (removed from document flow)
+    - flex: Creates a flex container for flexible layouts
+    - grid: Creates a grid container for grid-based layouts
+    
+    
+    8. POSITION PROPERTY
+    --------------------
+    Definition: The position property specifies the positioning method for an element.
+    
+    Values:
+    - static (default): Normal document flow, not affected by top/right/bottom/left
+    - relative: Positioned relative to its normal position
+    - absolute: Positioned relative to nearest positioned ancestor
+    - fixed: Positioned relative to the viewport (stays in place when scrolling)
+    - sticky: Hybrid of relative and fixed (toggles based on scroll position)
+    
+    
+    9. UNITS OF MEASUREMENT
+    -----------------------
+    Definition: CSS uses various units to specify sizes, lengths, and distances.
+    
+    Absolute Units:
+    - px (pixels): Fixed size, most common
+    - pt (points): 1pt = 1/72 inch
+    - cm, mm, in: Physical measurements
+    
+    Relative Units:
+    - % (percentage): Relative to parent element
+    - em: Relative to font-size of element (or parent)
+    - rem: Relative to font-size of root element (html)
+    - vh/vw: Relative to viewport height/width (1vh = 1% of viewport height)
+    - vmin/vmax: Relative to smaller/larger viewport dimension
+    
+    
+    10. COLOR SYSTEMS
+    -----------------
+    Definition: CSS provides multiple ways to specify colors.
+    
+    Color Formats:
+    - Named Colors: color: red; (140+ predefined names)
+    - Hexadecimal: color: #FF0000; (6-digit hex code)
+    - RGB: color: rgb(255, 0, 0); (red, green, blue values 0-255)
+    - RGBA: color: rgba(255, 0, 0, 0.5); (RGB + alpha transparency 0-1)
+    - HSL: color: hsl(0, 100%, 50%); (hue, saturation, lightness)
+    - HSLA: color: hsla(0, 100%, 50%, 0.5); (HSL + alpha transparency)
+    
+    
+    ========================================
+    HOW TO APPLY CSS
+    ========================================
+    
+    1. INLINE CSS
+    -------------
+    Definition: CSS applied directly to an HTML element using the style attribute.
+    Syntax: <p style="color: blue; font-size: 16px;">Text</p>
+    
+    Pros: Quick for single elements, highest specificity
+    Cons: Not reusable, mixes content with presentation, hard to maintain
+    
+    
+    2. INTERNAL CSS (EMBEDDED)
+    --------------------------
+    Definition: CSS written inside a <style> tag in the HTML document's <head> section.
+    Syntax:
+    <head>
+        <style>
+            p { color: blue; }
+        </style>
+    </head>
+    
+    Pros: Keeps styles in one place for single page, no external file needed
+    Cons: Not reusable across multiple pages, increases HTML file size
+    
+    
+    3. EXTERNAL CSS
+    ---------------
+    Definition: CSS written in a separate .css file and linked to HTML document.
+    Syntax:
+    <head>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    
+    Pros: Reusable across multiple pages, separates concerns, cacheable by browser
+    Cons: Requires additional HTTP request (minimal impact)
+    
+    Best Practice: Use external CSS for most projects
+    
+    
+    ========================================
+    CSS SYNTAX STRUCTURE
+    ========================================
+    
+    Basic Syntax:
+    selector {
+        property: value;
+        property: value;
+    }
+    
+    Example:
+    h1 {
+        color: navy;
+        font-size: 24px;
+        text-align: center;
+    }
+    
+    Multiple Selectors:
+    h1, h2, h3 {
+        font-family: Arial, sans-serif;
+    }
+    
+    Comments in CSS:
+    /* This is a single-line comment */
+    
+    /*
+       This is a
+       multi-line comment
+    */
+    
+    
+    ========================================
+    IMPORTANT CSS CONCEPTS
+    ========================================
+    
+    1. RESPONSIVE DESIGN
+    --------------------
+    Definition: Approach to web design that makes pages render well on various devices 
+    and screen sizes.
+    
+    Key Techniques:
+    - Media Queries: Apply styles based on device characteristics
+    - Flexible Layouts: Use relative units (%, em, rem) instead of fixed pixels
+    - Flexible Images: Make images scale with their containers
+    - Mobile-First Approach: Design for mobile first, then enhance for larger screens
+    
+    
+    2. FLEXBOX
+    ----------
+    Definition: A one-dimensional layout method for arranging items in rows or columns.
+    
+    Key Properties:
+    - display: flex; (on container)
+    - flex-direction: row | column
+    - justify-content: Aligns items along main axis
+    - align-items: Aligns items along cross axis
+    - flex-wrap: Controls wrapping of items
+    
+    
+    3. CSS GRID
+    -----------
+    Definition: A two-dimensional layout system for creating complex grid-based layouts.
+    
+    Key Properties:
+    - display: grid; (on container)
+    - grid-template-columns: Defines column structure
+    - grid-template-rows: Defines row structure
+    - gap: Space between grid items
+    - grid-area: Assigns items to specific grid areas
+    
+    
+    4. TRANSITIONS & ANIMATIONS
+    ---------------------------
+    Transitions: Smooth changes between property values over time
+    Syntax: transition: property duration timing-function delay;
+    Example: transition: all 0.3s ease-in-out;
+    
+    Animations: More complex, keyframe-based animations
+    Syntax:
+    @keyframes animationName {
+        0% { property: value; }
+        100% { property: value; }
+    }
+    animation: animationName duration timing-function iteration-count;
+    
+    
+    5. PSEUDO-CLASSES & PSEUDO-ELEMENTS
+    -----------------------------------
+    Pseudo-classes: Define special states of elements
+    Examples:
+    - :hover (mouse over)
+    - :active (being clicked)
+    - :focus (has keyboard focus)
+    - :first-child, :last-child
+    - :nth-child(n)
+    
+    Pseudo-elements: Style specific parts of elements
+    Examples:
+    - ::before (insert content before element)
+    - ::after (insert content after element)
+    - ::first-letter (first letter of text)
+    - ::first-line (first line of text)
+    
+    
+    ========================================
+    CSS BEST PRACTICES
+    ========================================
+    
+    1. Use external stylesheets for better organization and reusability
+    2. Follow a naming convention (e.g., BEM - Block Element Modifier)
+    3. Keep specificity low to avoid conflicts
+    4. Use shorthand properties when possible (e.g., margin: 10px 20px;)
+    5. Organize CSS logically (e.g., layout, typography, components)
+    6. Comment your code for complex sections
+    7. Use CSS variables (custom properties) for repeated values
+    8. Minimize use of !important
+    9. Test across different browsers and devices
+    10. Optimize for performance (minimize file size, combine files)
+    
+    
+    ========================================
+    CSS VARIABLES (CUSTOM PROPERTIES)
+    ========================================
+    
+    Definition: CSS variables allow you to store values for reuse throughout your stylesheet.
+    
+    Syntax:
+    :root {
+        --primary-color: #3498db;
+        --font-size-base: 16px;
+    }
+    
+    Usage:
+    h1 {
+        color: var(--primary-color);
+        font-size: var(--font-size-base);
+    }
+    
+    Benefits:
+    - Easy to maintain and update
+    - Can be changed dynamically with JavaScript
+    - Improves code readability
+    - Reduces repetition
+    
+    -->
+
+    <h1>CSS Introduction - Foundations & Definitions</h1>
+    <p>
+      This file contains comprehensive notes about CSS fundamentals in comment
+      form above.
+    </p>
+    <p>
+      View the HTML source code or inspect this page to read all the CSS
+      definitions and concepts.
+    </p>
+  </body>
+</html>
