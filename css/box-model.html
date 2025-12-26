@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        width: 500px;
+        height: 500px;
+        background-color: yellow;
+      }
+      .container img {
+        width: 100%;
+        height: 100%;
+        border: 2px solid black;
+        object-fit: contain;
+        /* filter: blur(1px); */
+        /* filter: grayscale(100%); */
+        /* filter: blur(5px); */
+        filter: brightness(150%);
+        /* filter: contrast(200%);
+        filter: drop-shadow(16px 16px 20px blue);
+        filter: grayscale(50%);
+        filter: hue-rotate(90deg);
+        filter: invert(75%);
+        filter: opacity(25%);
+        filter: saturate(30%);
+        filter: sepia(60%); */
+      }
+      /* .child {
+        width: 250px;
+        height: 250px;
+        background-color: blue;
+        padding: 15px;
+        border: 10px solid black;
+        margin: 30px;
+      } */
+    </style>
+  </head>
+  <body>
+    <!--
+    ========================================
+    CSS BOX MODEL & BACKGROUNDS
+    ========================================
+
+    PART 1: THE CSS BOX MODEL
+    -------------------------
+    Every element in HTML is essentially a box. The CSS Box Model uses this concept to handle
+    design and layout. It consists of:
+    1. Content: The actual content (text, image, etc.)
+    2. Padding: Transparent area around the content (inside the border)
+    3. Border: The line going around the padding and content
+    4. Margin: Transparent area outside the border (separates the element from others)
+
+    Visual Structure (Inside -> Outside):
+    [ Content ] -> [ Padding ] -> [ Border ] -> [ Margin ]
+
+    PROPERTIES:
+    - width / height: Sets size of the Content area (by default).
+    - padding: Space between content and border.
+      * padding: 10px; (all sides)
+      * padding: 10px 20px; (top/bottom, left/right)
+      * padding: 10px 20px 30px 40px; (top, right, bottom, left - Clockwise)
+    - border: The boundary.
+      * border: 5px solid red; (width, style, color)
+    - margin: Space outside the border.
+      * margin: auto; (centers horizontally if width is set)
+      * Collapsing margins: Top/bottom margins of adjacent elements sometimes combine into a single margin.
+
+    BOX-SIZING PROPERTY
+    -------------------
+    Controls how the total width and height of an element is calculated.
+    
+    1. content-box (Default):
+       - Width/Height = Content only.
+       - Total size = Width + Padding + Border.
+       - Example: width: 100px + padding: 20px + border: 10px + margin: 0 = 130px onscreen width (excluding margin).
+       
+    2. border-box (Best Practice):
+       - Width/Height = Content + Padding + Border.
+       - Padding and border push inward, keeping the overall element size constant.
+       - Example: width: 100px includes padding and border. Content area shrinks to fit.
+       - To enable globally:
+         * { box-sizing: border-box; }
+
+
+    PART 2: CSS BACKGROUNDS
+    -----------------------
+    CSS background properties are used to define the background effects for elements.
+
+    1. background-color
+       - Sets the background color.
+       - Example: background-color: #f0f0f0;
+
+    2. background-image
+       - Sets an image as the background.
+       - Example: background-image: url('image.jpg');
+       - Gradients are also images: background-image: linear-gradient(to right, red, blue);
+
+    3. background-repeat
+       - Controls if/how the image repeats.
+       - Values: repeat (default), no-repeat, repeat-x (horizontal), repeat-y (vertical).
+
+    4. background-position
+       - Specifies the position of the background image.
+       - Values: center, top, bottom, left, right, or specific px/%.
+       - Example: background-position: center center;
+
+    5. background-size
+       - Specifies the size of the background image.
+       - auto: Default.
+       - cover: Resizes image to cover the entire container (may crop).
+       - contain: Resizes image to be fully visible (may leave empty space).
+       - 100% 100%: Stretches to fill.
+
+    6. background-attachment
+       - Sets whether a background image scrolls with the page or is fixed.
+       - scroll (default): Background scrolls with the page.
+       - fixed: Background stays in place (parallax effect).
+
+    7. background (Shorthand)
+       - Order: color image repeat position/size attachment
+       - Example: background: #fff url('img.png') no-repeat center/cover fixed;
+    -->
+    <div class="container">
+      <!-- <div class="child">vikas</div> -->
+      <img
+        src="https://images.pexels.com/photos/29506647/pexels-photo-29506647.jpeg"
+        alt=""
+      />
+    </div>
+  </body>
+</html>

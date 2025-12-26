@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        width: 800px;
+        height: 800px;
+        background-color: yellow;
+        display: flex;
+        /* flex-direction: column-reverse; */
+        flex-direction: row;
+        /* justify-content: center; */
+        /* align-items: center; */
+        gap: 10px;
+        flex-wrap: wrap-reverse;
+      }
+      .child {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        /* margin: 10px; */
+        /* display: flex;
+        justify-content: center;
+        align-items: center; */
+        text-align: center;
+      }
+      .child-2 {
+        /* flex-basis: 200px; */
+        /* align-self: flex-end; */
+        /* flex-shrink: 2; */
+        order: 1000;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+    ========================================
+    CSS FLEXBOX (FLEXIBLE BOX LAYOUT)
+    ========================================
+
+    WHAT IS FLEXBOX?
+    ----------------
+    Flexbox is a layout model that allows elements to align and distribute space within a container, 
+    even when their size is unknown or dynamic.
+    
+    TERMINOLOGY:
+    - Flex Container: The parent element with `display: flex;`.
+    - Flex Items: The direct children of the flex container.
+    - Main Axis: The primary axis along which flex items are laid out (default: row/horizontal).
+    - Cross Axis: The axis perpendicular to the main axis (default: column/vertical).
+
+    
+    ========================================
+    PROPERTIES FOR THE PARENT (FLEX CONTAINER)
+    ========================================
+
+    1. display:
+       - flex: Enables flexbox layout (block-level).
+       - inline-flex: Enables flexbox layout (inline-level).
+
+    2. flex-direction (Defines Main Axis):
+       - row (default): Left to right.
+       - row-reverse: Right to left.
+       - column: Top to bottom.
+       - column-reverse: Bottom to top.
+
+    3. flex-wrap (Handling Overflow):
+       - nowrap (default): All items on one line.
+       - wrap: Items wrap to multiple lines if needed.
+       - wrap-reverse: Wraps items in reverse order.
+
+    4. flex-flow (Shorthand):
+       - Syntax: flex-direction flex-wrap; (e.g., row wrap).
+
+    5. justify-content (Aligns items along Main Axis):
+       - flex-start (default): Pack toward start of line.
+       - flex-end: Pack toward end of line.
+       - center: Pack toward center.
+       - space-between: Distribute evenly, first item at start, last at end.
+       - space-around: Distribute evenly with equal space around each item.
+       - space-evenly: Distribute so space between any two items (and edges) is equal.
+
+    6. align-items (Aligns items along Cross Axis - Single Line):
+       - stretch (default): Stretch to fill container (if no fixed height/width).
+       - flex-start: Align at start of cross axis.
+       - flex-end: Align at end of cross axis.
+       - center: Align at center of cross axis.
+       - baseline: Align baselines of items.
+
+    7. align-content (Aligns lines along Cross Axis - Multi Line):
+       - Only works when there is multiple lines (flex-wrap: wrap).
+       - flex-start, flex-end, center, space-between, space-around, stretch.
+
+
+    ========================================
+    PROPERTIES FOR THE CHILDREN (FLEX ITEMS)
+    ========================================
+
+    1. order:
+       - Controls the order in which items appear.
+       - Default: 0. Accepts negative/positive integers.
+    
+    2. flex-grow:
+       - Defines ability to grow if necessary.
+       - Default: 0 (don't grow). Number represents proportion of remaining free space.
+    
+    3. flex-shrink:
+       - Defines ability to shrink if necessary.
+       - Default: 1 (shrink to fit). Set to 0 to prevent shrinking.
+    
+    4. flex-basis:
+       - Defines default size before remaining space is distributed.
+       - Can be a length (e.g., 20%, 5rem, auto).
+       - Like width (in row mode) or height (in column mode).
+
+    5. flex (Shorthand):
+       - Syntax: flex-grow flex-shrink flex-basis;
+       - Recommended usage: flex: 1; (grow: 1, shrink: 1, basis: 0%)
+       - flex: auto; (1 1 auto)
+       - flex: none; (0 0 auto)
+
+    6. align-self:
+       - Overrides align-items for a specific item.
+       - Values: auto, flex-start, flex-end, center, baseline, stretch.
+    -->
+    <div class="container">
+      <div class="child">item-1</div>
+      <div class="child child-2">item-2</div>
+      <div class="child">item-3</div>
+    </div>
+  </body>
+</html>

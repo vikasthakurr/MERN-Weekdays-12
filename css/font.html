@@ -3,909 +3,219 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CSS Fonts & Typography - Complete Guide</title>
+    <title>CSS Fonts & Text Documentation</title>
     <style>
-      /*
-      ========================================
-      CSS FONTS & TYPOGRAPHY - COMPLETE GUIDE
-      ========================================
-
-      WHAT IS TYPOGRAPHY?
-      -------------------
-      Typography is the art and technique of arranging text to make it readable and appealing.
-      In CSS, typography involves controlling fonts, sizes, spacing, alignment, and other text properties.
-      Good typography enhances user experience and readability.
-
-
-      ========================================
-      1. FONT-FAMILY
-      ========================================
-
-      Definition: Specifies the typeface/font to be used for text.
-      Syntax: font-family: family-name, generic-family;
-
-      Font Categories:
-      ---------------
-
-      1. SERIF FONTS
-      --------------
-      - Have small decorative strokes (serifs) at the ends of letters
-      - Traditional, formal, professional appearance
-      - Better for print, can be harder to read on screens
-
-      Common Serif Fonts:
-      - Times New Roman
-      - Georgia
-      - Garamond
-      - Palatino
-      - Baskerville
-
-      Example:
-      font-family: Georgia, serif;
-
-
-      2. SANS-SERIF FONTS
-      -------------------
-      - No decorative strokes (sans = without)
-      - Clean, modern, minimalist appearance
-      - Better for screen reading
-      - Most popular for web design
-
-      Common Sans-Serif Fonts:
-      - Arial
-      - Helvetica
-      - Verdana
-      - Tahoma
-      - Trebuchet MS
-      - Calibri
-      - Roboto
-      - Open Sans
-
-      Example:
-      font-family: Arial, sans-serif;
-
-
-      3. MONOSPACE FONTS
-      ------------------
-      - Each character has the same width
-      - Used for code, technical content
-      - Maintains alignment in plain text
-
-      Common Monospace Fonts:
-      - Courier New
-      - Consolas
-      - Monaco
-      - Fira Code
-      - Source Code Pro
-
-      Example:
-      font-family: 'Courier New', monospace;
-
-
-      4. CURSIVE FONTS
-      ----------------
-      - Mimic handwriting or calligraphy
-      - Decorative, elegant, personal
-      - Use sparingly for headings or accents
-
-      Common Cursive Fonts:
-      - Comic Sans MS
-      - Brush Script MT
-      - Lucida Handwriting
-
-      Example:
-      font-family: 'Brush Script MT', cursive;
-
-
-      5. FANTASY FONTS
-      ----------------
-      - Decorative, artistic, unique
-      - Used for logos, headings, special effects
-      - Not suitable for body text
-
-      Common Fantasy Fonts:
-      - Impact
-      - Papyrus
-      - Copperplate
-
-      Example:
-      font-family: Impact, fantasy;
-
-
-      GENERIC FONT FAMILIES:
-      ---------------------
-      Always include a generic family as fallback:
-      - serif
-      - sans-serif
-      - monospace
-      - cursive
-      - fantasy
-
-
-      FONT STACK (Multiple Fonts):
-      ----------------------------
-      List fonts in order of preference. Browser uses first available font.
-
-      Example:
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
-      Best Practice Font Stacks:
-      -------------------------
-      Modern Sans-Serif:
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-
-      Classic Serif:
-      font-family: Georgia, 'Times New Roman', Times, serif;
-
-      Code/Monospace:
-      font-family: 'Fira Code', 'Courier New', Courier, monospace;
-
-
-      ========================================
-      2. FONT-SIZE
-      ========================================
-
-      Definition: Specifies the size of the font.
-      Syntax: font-size: value;
-
-      Units for Font Size:
-      -------------------
-
-      ABSOLUTE UNITS:
-      --------------
-      px (pixels):
-      - Fixed size, precise control
-      - Most common for web
-      - Example: font-size: 16px;
-
-      pt (points):
-      - 1pt = 1/72 inch
-      - Better for print
-      - Example: font-size: 12pt;
-
-
-      RELATIVE UNITS:
-      --------------
-      em:
-      - Relative to parent element's font size
-      - 1em = current font size
-      - 2em = twice the current font size
-      - Compounds with nesting
-      - Example: font-size: 1.5em;
-
-      rem (root em):
-      - Relative to root element (html) font size
-      - More predictable than em
-      - Doesn't compound with nesting
-      - Example: font-size: 1.25rem;
-
-      % (percentage):
-      - Relative to parent element's font size
-      - Similar to em
-      - Example: font-size: 120%;
-
-      vw/vh (viewport width/height):
-      - Relative to viewport size
-      - 1vw = 1% of viewport width
-      - Responsive typography
-      - Example: font-size: 5vw;
-
-
-      KEYWORD VALUES:
-      --------------
-      Absolute Keywords:
-      - xx-small
-      - x-small
-      - small
-      - medium (default, usually 16px)
-      - large
-      - x-large
-      - xx-large
-
-      Relative Keywords:
-      - smaller (relative to parent)
-      - larger (relative to parent)
-
-      Example:
-      font-size: large;
-
-
-      RECOMMENDED SIZES:
-      -----------------
-      Body Text: 16px (1rem)
-      Small Text: 14px (0.875rem)
-      Large Text: 18px (1.125rem)
-      H1: 32px - 48px (2rem - 3rem)
-      H2: 24px - 32px (1.5rem - 2rem)
-      H3: 20px - 24px (1.25rem - 1.5rem)
-      H4: 18px - 20px (1.125rem - 1.25rem)
-
-
-      ========================================
-      3. FONT-WEIGHT
-      ========================================
-
-      Definition: Specifies the thickness/boldness of the font.
-      Syntax: font-weight: value;
-
-      Numeric Values:
-      --------------
-      100 - Thin (Hairline)
-      200 - Extra Light (Ultra Light)
-      300 - Light
-      400 - Normal (Regular) - Default
-      500 - Medium
-      600 - Semi Bold (Demi Bold)
-      700 - Bold
-      800 - Extra Bold (Ultra Bold)
-      900 - Black (Heavy)
-
-      Keyword Values:
-      --------------
-      normal - Same as 400
-      bold - Same as 700
-      lighter - Relative to parent (one weight lighter)
-      bolder - Relative to parent (one weight heavier)
-
-      Examples:
-      font-weight: 400;        /* Normal */
-      font-weight: 700;        /* Bold */
-      font-weight: bold;       /* Bold */
-      font-weight: lighter;    /* Lighter than parent */
-
-      Note: Not all fonts support all weights. Variable fonts offer more flexibility.
-
-
-      ========================================
-      4. FONT-STYLE
-      ========================================
-
-      Definition: Specifies the style of the font (normal, italic, oblique).
-      Syntax: font-style: value;
-
-      Values:
-      ------
-      normal - Default, upright text
-      italic - Cursive/slanted version designed by font creator
-      oblique - Slanted version of normal text (artificially slanted)
-
-      Examples:
-      font-style: normal;
-      font-style: italic;
-      font-style: oblique;
-
-      Difference Between Italic and Oblique:
-      - Italic: Specially designed cursive characters
-      - Oblique: Normal characters artificially slanted
-      - Italic is preferred when available
-
-
-      ========================================
-      5. FONT-VARIANT
-      ========================================
-
-      Definition: Controls the use of alternate glyphs (small-caps, etc.).
-      Syntax: font-variant: value;
-
-      Values:
-      ------
-      normal - Default
-      small-caps - Lowercase letters appear as smaller uppercase letters
-
-      Examples:
-      font-variant: normal;
-      font-variant: small-caps;
-
-      Result with small-caps:
-      "Hello World" becomes "HELLO WORLD" (with smaller capitals for lowercase)
-
-
-      ========================================
-      6. LINE-HEIGHT
-      ========================================
-
-      Definition: Specifies the height of a line of text (vertical spacing).
-      Syntax: line-height: value;
-
-      Values:
-      ------
-      normal - Default (usually 1.2)
-      number - Multiplier of font size (recommended)
-      length - Fixed value (px, em, rem)
-      percentage - Percentage of font size
-
-      Examples:
-      line-height: normal;
-      line-height: 1.5;        /* 1.5 times font size */
-      line-height: 24px;       /* Fixed 24px */
-      line-height: 150%;       /* 150% of font size */
-
-      Best Practices:
-      --------------
-      Body Text: 1.5 - 1.6
-      Headings: 1.2 - 1.3
-      Tight Spacing: 1.0 - 1.2
-      Loose Spacing: 1.6 - 2.0
-
-      Why Use Unitless Numbers:
-      - Inherits better
-      - Scales with font size
-      - More predictable
-
-      Example:
-      p {
-          font-size: 16px;
-          line-height: 1.5;    /* Results in 24px line height */
-      }
-
-
-      ========================================
-      7. LETTER-SPACING (TRACKING)
-      ========================================
-
-      Definition: Controls spacing between characters.
-      Syntax: letter-spacing: value;
-
-      Values:
-      ------
-      normal - Default spacing
-      length - Fixed spacing (px, em, rem)
-
-      Examples:
-      letter-spacing: normal;
-      letter-spacing: 0.05em;      /* Slight increase */
-      letter-spacing: 2px;         /* 2px between characters */
-      letter-spacing: -0.02em;     /* Tighter spacing */
-
-      Use Cases:
-      ---------
-      Headings: Slightly increased (0.02em - 0.05em)
-      Uppercase Text: Increased spacing (0.1em - 0.2em)
-      Body Text: Usually normal
-      Logos: Custom spacing for aesthetics
-
-
-      ========================================
-      8. WORD-SPACING
-      ========================================
-
-      Definition: Controls spacing between words.
-      Syntax: word-spacing: value;
-
-      Values:
-      ------
-      normal - Default spacing
-      length - Fixed spacing (px, em, rem)
-
-      Examples:
-      word-spacing: normal;
-      word-spacing: 0.3em;     /* Increase space between words */
-      word-spacing: 5px;       /* 5px between words */
-      word-spacing: -0.1em;    /* Decrease space */
-
-
-      ========================================
-      9. TEXT-ALIGN
-      ========================================
-
-      Definition: Specifies horizontal alignment of text.
-      Syntax: text-align: value;
-
-      Values:
-      ------
-      left - Align to left (default for LTR languages)
-      right - Align to right
-      center - Center alignment
-      justify - Stretch lines to fill width (except last line)
-      start - Align to start edge (depends on text direction)
-      end - Align to end edge (depends on text direction)
-
-      Examples:
-      text-align: left;
-      text-align: center;
-      text-align: right;
-      text-align: justify;
-
-      Best Practices:
-      --------------
-      Body Text: left or justify
-      Headings: left or center
-      Buttons: center
-      Navigation: left, center, or right
-
-
-      ========================================
-      10. TEXT-DECORATION
-      ========================================
-
-      Definition: Adds decorative lines to text.
-      Syntax: text-decoration: line style color;
-
-      Text-Decoration-Line Values:
-      ----------------------------
-      none - No decoration (default)
-      underline - Line below text
-      overline - Line above text
-      line-through - Line through text (strikethrough)
-
-      Text-Decoration-Style Values:
-      -----------------------------
-      solid - Solid line (default)
-      double - Double line
-      dotted - Dotted line
-      dashed - Dashed line
-      wavy - Wavy line
-
-      Text-Decoration-Color:
-      ---------------------
-      Any valid color value
-
-      Examples:
-      text-decoration: none;
-      text-decoration: underline;
-      text-decoration: underline solid red;
-      text-decoration: line-through;
-      text-decoration: underline wavy blue;
-
-      Shorthand:
-      text-decoration: underline dotted #3498db;
-
-      Individual Properties:
-      text-decoration-line: underline;
-      text-decoration-style: wavy;
-      text-decoration-color: red;
-
-
-      ========================================
-      11. TEXT-TRANSFORM
-      ========================================
-
-      Definition: Controls capitalization of text.
-      Syntax: text-transform: value;
-
-      Values:
-      ------
-      none - No transformation (default)
-      uppercase - ALL UPPERCASE
-      lowercase - all lowercase
-      capitalize - Capitalize First Letter Of Each Word
-
-      Examples:
-      text-transform: none;
-      text-transform: uppercase;
-      text-transform: lowercase;
-      text-transform: capitalize;
-
-      Use Cases:
-      ---------
-      Headings: uppercase or capitalize
-      Buttons: uppercase
-      Names: capitalize
-      Email addresses: lowercase
-
-
-      ========================================
-      12. TEXT-INDENT
-      ========================================
-
-      Definition: Indents the first line of text in a block.
-      Syntax: text-indent: value;
-
-      Values:
-      ------
-      length - Fixed indentation (px, em, rem)
-      percentage - Percentage of container width
-
-      Examples:
-      text-indent: 0;          /* No indent */
-      text-indent: 2em;        /* Indent 2em */
-      text-indent: 50px;       /* Indent 50px */
-      text-indent: 10%;        /* Indent 10% of width */
-      text-indent: -2em;       /* Hanging indent (negative) */
-
-      Use Cases:
-      ---------
-      Paragraphs: 1em - 2em
-      Hanging indent: Negative value with padding
-
-
-      ========================================
-      13. TEXT-SHADOW
-      ========================================
-
-      Definition: Adds shadow effect to text.
-      Syntax: text-shadow: h-offset v-offset blur-radius color;
-
-      Parameters:
-      ----------
-      h-offset - Horizontal offset (required)
-      v-offset - Vertical offset (required)
-      blur-radius - Blur amount (optional, default 0)
-      color - Shadow color (optional, default text color)
-
-      Examples:
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-      text-shadow: 1px 1px 2px black;
-      text-shadow: 0 0 10px #fff;
-      text-shadow: -1px -1px 0 #000;
-
-      Multiple Shadows:
-      text-shadow: 2px 2px 4px red, -2px -2px 4px blue;
-
-      Use Cases:
-      ---------
-      Subtle depth: 1px 1px 2px rgba(0,0,0,0.1)
-      Glow effect: 0 0 10px color
-      3D effect: Multiple shadows
-      Readability: Light shadow on dark backgrounds
-
-
-      ========================================
-      14. WHITE-SPACE
-      ========================================
-
-      Definition: Controls how white space is handled.
-      Syntax: white-space: value;
-
-      Values:
-      ------
-      normal - Default, collapses whitespace, wraps text
-      nowrap - Collapses whitespace, no wrapping
-      pre - Preserves whitespace, no wrapping (like <pre>)
-      pre-wrap - Preserves whitespace, wraps text
-      pre-line - Collapses whitespace, preserves line breaks, wraps text
-
-      Examples:
-      white-space: normal;
-      white-space: nowrap;     /* Prevents text wrapping */
-      white-space: pre;        /* Preserves all whitespace */
-      white-space: pre-wrap;   /* Preserves whitespace, allows wrapping */
-
-
-      ========================================
-      15. WORD-BREAK & OVERFLOW-WRAP
-      ========================================
-
-      WORD-BREAK:
-      ----------
-      Controls how words break at line end.
-
-      Values:
-      normal - Default breaking rules
-      break-all - Break anywhere, even mid-word
-      keep-all - Don't break words (for CJK text)
-
-      Examples:
-      word-break: normal;
-      word-break: break-all;
-
-
-      OVERFLOW-WRAP (WORD-WRAP):
-      -------------------------
-      Controls whether to break unbreakable words.
-
-      Values:
-      normal - Break only at allowed points
-      break-word - Break anywhere if needed
-
-      Examples:
-      overflow-wrap: normal;
-      overflow-wrap: break-word;
-
-      Use Case: Preventing long URLs or text from breaking layout
-
-
-      ========================================
-      16. FONT SHORTHAND PROPERTY
-      ========================================
-
-      Definition: Combines multiple font properties in one declaration.
-      Syntax: font: [style] [variant] [weight] size[/line-height] family;
-
-      Required Values:
-      - font-size
-      - font-family
-
-      Optional Values (in order):
-      - font-style
-      - font-variant
-      - font-weight
-      - line-height (after size with /)
-
-      Examples:
-      font: 16px Arial, sans-serif;
-      font: italic 16px Georgia, serif;
-      font: bold 20px/1.5 'Helvetica Neue', sans-serif;
-      font: normal small-caps 700 18px/1.6 'Open Sans', sans-serif;
-
-      Note: Shorthand resets all font properties not specified to their defaults.
-
-
-      ========================================
-      17. WEB FONTS (@font-face)
-      ========================================
-
-      Definition: Allows use of custom fonts not installed on user's system.
-      Syntax: @font-face { font-family: name; src: url(); }
-
-      Basic Example:
-      @font-face {
-          font-family: 'MyCustomFont';
-          src: url('fonts/mycustomfont.woff2') format('woff2'),
-               url('fonts/mycustomfont.woff') format('woff');
-          font-weight: normal;
-          font-style: normal;
-      }
-
       body {
-          font-family: 'MyCustomFont', sans-serif;
+        font-family: Arial, sans-serif;
+        padding: 2rem;
+        background-color: #f4f4f4;
+        line-height: 1.6;
       }
-
-      Font Formats:
-      ------------
-      WOFF2 - Web Open Font Format 2 (best compression, modern browsers)
-      WOFF - Web Open Font Format (good support)
-      TTF - TrueType Font (widely supported)
-      OTF - OpenType Font (widely supported)
-      EOT - Embedded OpenType (IE only, legacy)
-
-      Font Properties in @font-face:
-      ------------------------------
-      font-family - Name to reference font
-      src - URL to font file(s)
-      font-weight - Weight this file represents
-      font-style - Style this file represents
-      font-display - How font loads (swap, block, fallback, optional)
-      unicode-range - Character range this font covers
-
-      Font-Display Values:
-      -------------------
-      auto - Browser default
-      block - Hide text until font loads (FOIT - Flash of Invisible Text)
-      swap - Show fallback immediately, swap when loaded (FOUT - Flash of Unstyled Text)
-      fallback - Brief block period, then fallback, swap if loads quickly
-      optional - Brief block period, browser decides whether to use font
-
-      Best Practice:
-      font-display: swap;  /* Prevents invisible text */
-
-
-      ========================================
-      18. GOOGLE FONTS
-      ========================================
-
-      Definition: Free web font service by Google.
-      URL: https://fonts.google.com
-
-      How to Use:
-      ----------
-      1. Choose fonts on Google Fonts website
-      2. Copy the <link> or @import code
-      3. Use font-family in CSS
-
-      Method 1 - HTML Link (Recommended):
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-      CSS:
-      body {
-          font-family: 'Roboto', sans-serif;
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       }
-
-      Method 2 - CSS @import:
-      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-      body {
-          font-family: 'Roboto', sans-serif;
-      }
-
-      Popular Google Fonts:
-      --------------------
-      - Roboto (sans-serif)
-      - Open Sans (sans-serif)
-      - Lato (sans-serif)
-      - Montserrat (sans-serif)
-      - Poppins (sans-serif)
-      - Raleway (sans-serif)
-      - Playfair Display (serif)
-      - Merriweather (serif)
-      - Fira Code (monospace)
-      - Source Code Pro (monospace)
-
-      Performance Tips:
-      ----------------
-      - Only load weights/styles you need
-      - Limit number of font families (2-3 max)
-      - Use font-display: swap
-      - Preconnect to Google Fonts
-
-
-      ========================================
-      19. VARIABLE FONTS
-      ========================================
-
-      Definition: Single font file containing multiple variations (weight, width, slant).
-      Benefits: Smaller file size, infinite variations, smooth animations.
-
-      Example:
-      @font-face {
-          font-family: 'InterVariable';
-          src: url('Inter-Variable.woff2') format('woff2');
-          font-weight: 100 900;  /* Supports range */
-      }
-
       h1 {
-          font-family: 'InterVariable', sans-serif;
-          font-weight: 650;  /* Any value in range */
+        text-align: center;
+        color: #333;
       }
-
-      Font-Variation-Settings:
-      ------------------------
-      For custom axes beyond standard properties.
-
-      font-variation-settings: 'wght' 500, 'wdth' 75;
-
-      Common Axes:
-      wght - Weight
-      wdth - Width
-      slnt - Slant
-      ital - Italic
-
-
-      ========================================
-      20. TYPOGRAPHY BEST PRACTICES
-      ========================================
-
-      1. FONT PAIRING
-      --------------
-      - Use 2-3 fonts maximum
-      - Pair serif with sans-serif for contrast
-      - Ensure good readability
-      - Maintain hierarchy
-
-      Good Pairings:
-      - Playfair Display (headings) + Lato (body)
-      - Montserrat (headings) + Merriweather (body)
-      - Roboto (headings) + Open Sans (body)
-
-
-      2. HIERARCHY
-      -----------
-      - Use size, weight, and spacing to create visual hierarchy
-      - H1 should be largest and most prominent
-      - Consistent scale (e.g., 1.25x, 1.5x, 2x)
-      - Use modular scale for harmony
-
-
-      3. READABILITY
-      -------------
-      - Body text: 16px minimum
-      - Line length: 45-75 characters per line
-      - Line height: 1.5-1.6 for body text
-      - Sufficient contrast (4.5:1 minimum)
-      - Avoid all caps for long text
-
-
-      4. RESPONSIVE TYPOGRAPHY
-      -----------------------
-      - Use relative units (rem, em)
-      - Adjust font sizes for different screens
-      - Use clamp() for fluid typography
-      - Test on multiple devices
-
-      Example:
-      font-size: clamp(1rem, 2.5vw, 2rem);
-
-
-      5. PERFORMANCE
-      -------------
-      - Limit number of font files
-      - Use font-display: swap
-      - Subset fonts (only needed characters)
-      - Preload critical fonts
-      - Use system fonts when possible
-
-      System Font Stack:
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-                   'Helvetica Neue', Arial, sans-serif;
-
-
-      6. ACCESSIBILITY
-      ---------------
-      - Minimum 16px for body text
-      - Sufficient color contrast
-      - Allow text resizing
-      - Don't rely on color alone
-      - Use relative units
-      - Avoid justified text for dyslexic users
-
-
-      ========================================
-      PRACTICAL EXAMPLES
-      ========================================
-
-      Modern Website Typography:
-      -------------------------
-      body {
-          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-          font-size: 16px;
-          line-height: 1.6;
-          color: #333;
-      }
-
-      h1 {
-          font-size: 2.5rem;
-          font-weight: 700;
-          line-height: 1.2;
-          letter-spacing: -0.02em;
-          margin-bottom: 1rem;
-      }
-
-      h2 {
-          font-size: 2rem;
-          font-weight: 600;
-          line-height: 1.3;
-          margin-bottom: 0.75rem;
-      }
-
       p {
-          margin-bottom: 1rem;
+        color: #666;
       }
-
-      a {
-          color: #3498db;
-          text-decoration: none;
-      }
-
-      a:hover {
-          text-decoration: underline;
-      }
-
-      code {
-          font-family: 'Fira Code', monospace;
-          font-size: 0.9em;
-          background: #f4f4f4;
-          padding: 0.2em 0.4em;
-          border-radius: 3px;
-      }
-
-
-      Elegant Article Typography:
-      ---------------------------
-      article {
-          max-width: 680px;
-          margin: 0 auto;
-          font-family: Georgia, serif;
-          font-size: 18px;
-          line-height: 1.7;
-          color: #2c3e50;
-      }
-
-      article h1 {
-          font-family: 'Playfair Display', serif;
-          font-size: 3rem;
-          font-weight: 700;
-          line-height: 1.1;
-          margin-bottom: 0.5em;
-      }
-
-      article p {
-          margin-bottom: 1.5em;
-          text-align: justify;
-      }
-
-      article p:first-of-type::first-letter {
-          font-size: 3.5em;
-          line-height: 0.9;
-          float: left;
-          margin: 0.1em 0.1em 0 0;
-      }
-
-      */
     </style>
   </head>
   <body>
-    <!-- All content is in comment form above in the <style> section -->
+    <!--
+    ========================================
+    CSS FONTS & TEXT PROPERTIES
+    ========================================
+
+    WHAT IS TYPOGRAPHY IN CSS?
+    --------------------------
+    Typography allows you to style text content. CSS categorizes this into:
+    1. Font Properties: Define the font family, size, weight, style, and variant.
+    2. Text Properties: Define alignment, decoration, transformation, spacing, etc.
+
+
+    ========================================
+    1. FONT FAMILY
+    ========================================
+    Property: `font-family`
+    - Specifies the typeface.
+    - Accepts a prioritized list of font family names (font stack).
+    - Stops at the first font available on the user's system.
+    
+    Generic Families (Fallbacks):
+    - serif: Fonts with small lines at the ends (e.g., Times New Roman, Georgia).
+    - sans-serif: Clean fonts without lines (e.g., Arial, Helvetica).
+    - monospace: All characters have equal width (e.g., Courier New, Consolas).
+    - cursive: Handwriting style (e.g., Comic Sans MS).
+    - fantasy: Decorative (e.g., Impact).
+
+    Example:
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    (Tries Helvetica Neue first, then Arial, then any system sans-serif font)
+
+
+    ========================================
+    2. FONT SIZE
+    ========================================
+    Property: `font-size`
+    - Sets the height of the text.
+
+    Common Units:
+    - px (Pixels): Absolute size (e.g., 16px). Precise but static.
+    - em: Relative to parent element's font-size.
+    - rem: Relative to root (html) font-size (Recommended for accessibility & responsiveness).
+    - %: Relative to parent element's font-size.
+    - vw/vh: Relative to viewport width/height.
+
+    Example:
+    font-size: 16px;
+    font-size: 1.5rem; (1.5 * root-font-size)
+
+
+    ========================================
+    3. FONT WEIGHT
+    ========================================
+    Property: `font-weight`
+    - Specifies the thickness of characters.
+    
+    Values:
+    - normal (400)
+    - bold (700)
+    - lighter
+    - bolder
+    - Numeric: 100 (Thin) to 900 (Black).
+      * 100-300: Light/Thin
+      * 400: Regular/Normal
+      * 500: Medium
+      * 600: Semi-Bold
+      * 700: Bold
+      * 800-900: Extra Bold/Black
+
+    Example:
+    font-weight: bold;
+    font-weight: 600;
+
+
+    ========================================
+    4. FONT STYLE
+    ========================================
+    Property: `font-style`
+    - Mostly used for italic text.
+
+    Values:
+    - normal: Default.
+    - italic: Uses variable italic glyphs if available.
+    - oblique: Slants the normal font content (often looks same as italic).
+
+    Example:
+    font-style: italic;
+
+
+    ========================================
+    5. TEXT DECORATION
+    ========================================
+    Property: `text-decoration`
+    - Adds decorative lines to text.
+
+    Values:
+    - none: Removes standard underlines (common for links).
+    - underline: Adds a line below.
+    - overline: Adds a line above.
+    - line-through: Strikethrough.
+
+    Example:
+    text-decoration: underline;
+    text-decoration: none;
+
+
+    ========================================
+    6. TEXT TRANSFORM
+    ========================================
+    Property: `text-transform`
+    - Controls capitalization.
+
+    Values:
+    - uppercase: ALL CAPS.
+    - lowercase: all lower case.
+    - capitalize: First Letter Of Each Word.
+    - none: No change.
+
+    Example:
+    text-transform: uppercase;
+
+
+    ========================================
+    7. TEXT ALIGN
+    ========================================
+    Property: `text-align`
+    - Horizontally aligns text within its container.
+    
+    Values:
+    - left: Align left (default LTR).
+    - right: Align right.
+    - center: Centered.
+    - justify: Stretches lines so every line has equal width (like newspapers).
+
+    Example:
+    text-align: center;
+
+
+    ========================================
+    8. LINE HEIGHT
+    ========================================
+    Property: `line-height`
+    - Sets the vertical space between lines of text.
+    - Can prevent text from overlapping or make it more readable.
+
+    Values:
+    - normal: Browser default (~1.2).
+    - Number: Multiplier of font-size (Recommended, e.g., 1.5).
+    - Length: px, em, rem.
+
+    Example:
+    line-height: 1.5; (1.5 times the font size)
+
+
+    ========================================
+    9. LETTER & WORD SPACING
+    ========================================
+    - letter-spacing: Space between characters.
+      Example: letter-spacing: 2px;
+    
+    - word-spacing: Space between words.
+      Example: word-spacing: 5px;
+
+
+    ========================================
+    10. FONT SHORTHAND
+    ========================================
+    Property: `font`
+    - Sets all font properties in one line.
+    
+    Syntax Requirements:
+    1. 'font-size' and 'font-family' are mandatory.
+    2. 'font-family' must be the last value.
+
+    Order:
+    font: [style] [variant] [weight] [size]/[line-height] [family];
+
+    Example:
+    font: italic bold 16px/1.5 "Helvetica Neue", Arial, sans-serif;
+    -->
+
+    <div class="container">
+      <h1>CSS Typography</h1>
+      <p>
+        Check the source code of this file to see detailed notes on CSS Fonts
+        and Text properties.
+      </p>
+    </div>
   </body>
 </html>

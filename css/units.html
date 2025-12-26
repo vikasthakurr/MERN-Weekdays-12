@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .parent {
+        width: 700px;
+        height: 700px;
+        background-color: yellow;
+        font-size: 50px;
+      }
+      /* .child {
+        width: 50%;
+        height: 50%;
+        background-color: blue;
+      } */
+      h1 {
+        /* font-size: 100vw; */
+        /* font-size: 20px; */
+        font-size: 1rem;
+      }
+      html {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+    ========================================
+    CSS UNITS OF MEASUREMENT
+    ========================================
+
+    WHAT ARE CSS UNITS?
+    -------------------
+    CSS units are used to express lengths (width, height, margin, padding, font-size, etc.).
+    There are two main categories of units in CSS:
+    1. Absolute Units
+    2. Relative Units
+
+
+    1. ABSOLUTE UNITS
+    -----------------
+    Absolute units are fixed and will appear as exactly that size.
+    They are not recommended for use on screen layouts because screen sizes vary so much.
+    However, they can be useful if the output is known, such as for print layout.
+
+    Common Absolute Units:
+    - px (Pixels): Use for screen media (1px = 1/96th of 1in). Most common absolute unit.
+    - cm (Centimeters)
+    - mm (Millimeters)
+    - in (Inches): 1in = 96px = 2.54cm
+    - pt (Points): 1pt = 1/72 of 1in
+    - pc (Picas): 1pc = 12pt
+
+    Note: Pixels (px) are relative to the viewing device. For low-dpi devices, 1px is one device pixel (dot) of the display. For high-resolution screens, 1px implies multiple device pixels.
+
+
+    2. RELATIVE UNITS
+    -----------------
+    Relative units specify a length relative to another length property.
+    Relative units scale better between different rendering mediums (e.g., desktop vs mobile).
+
+    A. FONT-RELATIVE UNITS
+    ----------------------
+    - em: Relative to the font-size of the element (2em means 2 times the size of the current font).
+      * Exception: When used on 'font-size' property itself, it is relative to the parent's font-size.
+    - rem: Relative to the font-size of the root element (html).
+      * "r" stands for "root".
+      * Better for maintenance than 'em' because it doesn't compound (cascade) through nesting.
+    - ch: Relative to the width of the "0" (zero) character.
+    - ex: Relative to the x-height of the current font (rarely used).
+
+    B. VIEWPORT-RELATIVE UNITS
+    --------------------------
+    - vw: Relative to 1% of the width of the viewport.
+    - vh: Relative to 1% of the height of the viewport.
+    - vmin: Relative to 1% of viewport's smaller dimension (height or width).
+    - vmax: Relative to 1% of viewport's larger dimension (height or width).
+
+    C. PERCENTAGE
+    -------------
+    - %: Relative to the parent element.
+
+
+    DEEP DIVE: EM vs REM vs PX
+    --------------------------
+
+    1. Pixels (px):
+       - Precise control.
+       - Does not scale if user changes browser default font size.
+       - Good for borders or shadows where precise alignment matters.
+
+    2. Ems (em):
+       - Scalable.
+       - Compounding issue: Nested elements with em font sizes multiply (e.g., 2em inside 2em = 4em).
+       - Good for padding/margin relative to the text size of that specific component.
+
+    3. Rems (rem):
+       - Scalable and consistent.
+       - Always relative to <html> font-size (usually 16px by default).
+       - Easy to reset global sizing (just change html font-size).
+       - Best practice for general layout, spacing, and typography sizing.
+
+
+    EXAMPLE CALCULATIONS
+    --------------------
+    Assuming default browser font-size is 16px:
+
+    - 1rem = 16px
+    - 2rem = 32px
+    - 1.5rem = 24px (1.5 * 16)
+    - 0.875rem = 14px (0.875 * 16)
+
+    Tip: Setting html { font-size: 62.5%; } makes 1rem = 10px (16px * 0.625), making calculations easier.
+    -->
+    <div class="parent">
+      <h1>vikas</h1>
+      <h1>vikas thakur</h1>
+    </div>
+  </body>
+</html>
