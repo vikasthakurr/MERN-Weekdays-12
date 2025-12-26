@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /*
+        ========================================
+        CSS MEDIA QUERIES - DETAILED NOTES
+        ========================================
+
+        Media queries allow you to apply CSS styles depending on a device's media type (such as print vs. screen) or other features (such as screen resolution or viewport width).
+
+        1. SYNTAX
+           @media [media-type] and ([media-feature]) {
+             /* CSS rules here */
+           }
+
+        2. MEDIA TYPES
+           - all: Used for all media type devices (default).
+           - screen: Used for computer screens, tablets, smart-phones etc.
+           - print: Used for printers and print preview.
+           - speech: Used for screenreaders that "read" the page out loud.
+
+        3. COMMON MEDIA FEATURES
+           - max-width: Applies styles if viewport is <= specified width. (Desktop-first)
+           - min-width: Applies styles if viewport is >= specified width. (Mobile-first)
+           - orientation: landscape | portrait.
+           - hover: none | hover (Detects if device has a cursor).
+           - prefers-color-scheme: dark | light (User's system theme).
+
+        4. LOGICAL OPERATORS
+           - and: Joins multiple features. All must be true.
+             Example: @media screen and (min-width: 600px) and (max-width: 900px) { ... }
+           - , (comma): Acts like OR. At least one must be true.
+             Example: @media screen and (max-width: 600px), print { ... }
+           - not: Inverts the query.
+             Example: @media not screen and (color) { ... }
+           - only: Prevents older browsers from applying styles if they don't support the query.
+
+        5. STANDARD BREAKPOINTS (Examples)
+           Small devices (phones):   max-width: 600px
+           Tablets (portrait):       min-width: 600px
+           Tablets (landscape):      min-width: 768px
+           Laptops/Desktops:         min-width: 992px
+           Large Laptops/Desktops:   min-width: 1200px
+      */
+      .container {
+        width: 800px;
+        height: 700px;
+        background-color: beige;
+      }
+      img {
+        width: 400px;
+        height: 400px;
+      }
+      @media (orientation: landscape) {
+        img {
+          width: 300px;
+          height: 300px;
+          border-radius: 50%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img
+        src="https://images.pexels.com/photos/19536439/pexels-photo-19536439.jpeg"
+        alt=""
+      />
+    </div>
+  </body>
+</html>

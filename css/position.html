@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 
+        ========================================
+        CSS POSITIONING - DETAILED NOTES
+        ========================================
+        
+        The 'position' property specifies the type of positioning method used for an element.
+        
+        1. position: static; (Default)
+           - The element is positioned according to the normal flow of the document.
+           - The top, right, bottom, left, and z-index properties have NO effect.
+           
+        2. position: relative;
+           - The element is positioned relative to its normal position.
+           - Setting top/right/bottom/left will cause it to be adjusted away from its normal position.
+           - Other content will NOT be adjusted to fit into any gap left by the element.
+           - Often used as a parent container for 'absolute' children.
+
+        3. position: absolute;
+           - The element is removed from the normal document flow; no space is created for the element in the page layout.
+           - It is positioned relative to its nearest POSITIONED ancestor (an ancestor with any position other than static).
+           - If no positioned ancestor exists, it uses the document body (viewport).
+           - It can overlap other elements.
+
+        4. position: fixed;
+           - The element is removed from the normal document flow.
+           - It is positioned relative to the VIEWPORT (browser window).
+           - It stays in the same place even when the page is scrolled.
+           - Examples: Navigation bars, "Back to Top" buttons.
+
+        5. position: sticky;
+           - Toggles between relative and fixed, depending on the scroll position.
+           - It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like fixed).
+           - Requires at least one threshold (e.g., top: 0;).
+
+        HELPER PROPERTIES
+        -----------------
+        - top, right, bottom, left: Used to position non-static elements.
+        - z-index: Specifies the stack order of an element (which element should be in front/behind others). Only works on positioned elements (relative, absolute, fixed, sticky).
+      */
+      .container {
+        width: 800px;
+        height: 1800px;
+        background-color: beige;
+        position: relative;
+      }
+      .box {
+        height: 150px;
+        width: 150px;
+        background-color: yellow;
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      /* .box-1 {
+        position: static;
+        top: 50px;
+        left: 100px;
+      } */
+      .box-2 {
+        position: relative;
+        top: 50px;
+        left: 150px;
+      }
+      /* .box-3 {
+        position: absolute;
+        left: 160px;
+        top: 10px;
+      } */
+      /* .box-4{
+        position: fixed;
+        top: 50%;
+        left: 30%;
+       } */
+      /* .box-5{
+            position: sticky;
+            top: 0;
+        } */
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box box-1">position-1</div>
+      <div class="box box-2">position-2</div>
+      <div class="box box-3">position-3</div>
+      <div class="box box-4">position-4</div>
+      <div class="box box-5">position-5</div>
+    </div>
+  </body>
+</html>
