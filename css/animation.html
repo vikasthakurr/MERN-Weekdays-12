@@ -1,0 +1,101 @@
+<!-- 
+  =========================================
+  CSS ANIMATIONS - COMPREHENSIVE NOTES & CODE
+  =========================================
+  
+  What is CSS Animation?
+  - CSS animations let an element gradually change from one style to another.
+
+  1. The @keyframes Rule:
+     - Defines the stages and styles.
+     - Code Example:
+       @keyframes slideIn {
+         0%   { margin-left: -100%; }
+         50%  { margin-left: 20%; }
+         100% { margin-left: 0; }
+       }
+
+  2. Animation Properties:
+     - animation-name: name of the @keyframes code.
+     - animation-duration: e.g., 2s, 500ms.
+     - animation-timing-function: How the animation progresses over its duration.
+       - linear, ease, ease-in, ease-out, ease-in-out, cubic-bezier(n,n,n,n)
+     - animation-delay: Delay before start.
+     - animation-iteration-count: Number of times (e.g., 5, infinite).
+     - animation-direction: normal, reverse, alternate, alternate-reverse.
+     - animation-fill-mode: none, forwards, backwards, both.
+     - animation-play-state: running, paused.
+
+  3. Code Examples (Property Usage):
+     .box {
+       animation-name: slideIn;
+       animation-duration: 4s;
+       animation-iteration-count: infinite;
+       animation-direction: alternate;
+       animation-timing-function: ease-in-out;
+       animation-fill-mode: forwards;
+     }
+
+  4. Shorthand Property (animation):
+     - Order: [name] [duration] [timing-function] [delay] [iteration-count] [direction] [fill-mode]
+     - Code Example:
+       animation: slideIn 4s ease-in-out 1s infinite alternate forwards;
+
+  5. Key Differences (Transition vs Animation):
+     - Transitions: state1 -> state2 (e.g., on hover).
+     - Animations: Multiple states (0% -> 50% -> 100%). Can auto-start.
+  
+  =========================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 600px;
+        height: 600px;
+        background-color: beige;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+      }
+      .ball {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background-color: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+        animation-name: jump;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        /* animation-timing-function: ease-in-out; */
+      }
+      @keyframes jump {
+        0% {
+          transform: translateY(0px);
+          /* background-color: yellow; */
+        }
+        50% {
+          transform: translateY(-80%);
+          background-color: yellow;
+          border: 2px solid green;
+        }
+        100% {
+          transform: translateY(0px);
+          background-color: red;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="ball">Ind Vs SA</div>
+    </div>
+  </body>
+</html>

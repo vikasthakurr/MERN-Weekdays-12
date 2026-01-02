@@ -1,0 +1,207 @@
+<!-- 
+  =========================================
+  BOOTSTRAP 5 - COMPREHENSIVE NOTES & CODE
+  =========================================
+
+  1. BREAKPOINTS:
+     - XS: <576px | SM: ≥576px | MD: ≥768px | LG: ≥992px | XL: ≥1200px | XXL: ≥1400px
+     - Code Example (Responsive Display):
+       <div class="d-block d-sm-none">Visible only on XS</div>
+       <div class="d-none d-md-block">Visible only on MD and up</div>
+
+  2. CONTAINERS:
+     - .container: Responsive fixed width.
+     - .container-fluid: 100% width.
+     - Code Example:
+       <div class="container">...Fixed width content...</div>
+       <div class="container-fluid">...Full width content...</div>
+
+  3. GRID SYSTEM (12-Column):
+     - Rows (.row) and Columns (.col-*).
+     - Code Example:
+       <div class="container">
+         <div class="row">
+           <div class="col-md-8">Main Content (8/12)</div>
+           <div class="col-md-4">Sidebar (4/12)</div>
+         </div>
+       </div>
+
+  4. BUTTONS:
+     - Classes: .btn, .btn-[color], .btn-outline-[color], .btn-[size].
+     - Code Example:
+       <button class="btn btn-primary">Primary Button</button>
+       <button class="btn btn-outline-success btn-lg">Large Outline Success</button>
+
+  5. CARDS:
+     - Flexible container for content.
+     - Code Example:
+       <div class="card" style="width: 18rem;">
+         <img src="..." class="card-img-top" alt="...">
+         <div class="card-body">
+           <h5 class="card-title">Card Title</h5>
+           <p class="card-text">Some text description.</p>
+           <a href="#" class="btn btn-primary">Go somewhere</a>
+         </div>
+       </div>
+
+  6. NAVBAR:
+     - Responsive navigation header.
+     - Code Example:
+       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+         <div class="container-fluid">
+           <a class="navbar-brand" href="#">Logo</a>
+           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navNav">
+             <span class="navbar-toggler-icon"></span>
+           </button>
+           <div class="collapse navbar-collapse" id="navNav">
+             <ul class="navbar-nav">
+               <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+             </ul>
+           </div>
+         </div>
+       </nav>
+
+  =========================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <!-- <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script> -->
+  </head>
+  <body>
+    <!-- <p class="h1">this is heading</p> -->
+    <!-- <p class="display-1">this is display-1</p>
+    <p class="display-2">display-2</p>
+    <p class="display-3">display-3</p>
+    <p class="display-6">display-6</p>
+
+    <p >
+      Lorem ipsum <span class="mark">dolor</span> sit amet consectetur adipisicing elit. Exercitationem
+      ducimus, quibusdam facere at ab laboriosam eum atque tempore dolore ad!
+    </p> -->
+
+    <!-- <div class="container-fluid bg-info mt-5">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
+      atque, sit labore corporis quae cumque aliquid fuga magnam velit illo
+      nobis possimus consectetur amet placeat deleniti repellendus eum repellat,
+      explicabo dolorem? Ipsam, unde vel qui error, eaque doloremque corporis
+      minima libero atque, repellendus cum beatae pariatur. Animi fugiat
+      deserunt, doloremque similique in quo, qui nam sequi pariatur maxime
+      officiis deleniti quas ut quod quibusdam dolorum enim unde libero ratione
+      minima! Incidunt et facere corporis corrupti architecto quis molestias
+      sequi quod ipsum quae nam rerum, repellendus excepturi animi culpa aut
+      nemo accusantium deserunt labore. Dolorum temporibus odio praesentium
+      soluta autem neque iure minus ratione eum voluptas quibusdam dolore eius
+      numquam ad perspiciatis, exercitationem saepe illum, eveniet recusandae
+      voluptatibus ullam, ipsum tempora? Reiciendis, doloribus! Corrupti
+      veritatis molestiae consectetur quos soluta cumque repellat quo
+      voluptatum, reprehenderit hic doloremque neque possimus voluptates quia
+      perspiciatis error quibusdam rem aperiam accusantium dolor aut omnis
+      numquam temporibus!
+    </div> -->
+
+    <!-- <div class="btn btn-lg btn-outline-warning">Submit</div>
+    <button type="button" class="btn btn-primary">Primary</button>
+    <button type="button" class="btn btn-secondary">Secondary</button>
+    <button type="button" class="btn btn-success">Success</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-warning">Warning</button>
+    <button type="button" class="btn btn-info">Info</button>
+    <button type="button" class="btn btn-light">Light</button>
+    <button type="button" class="btn btn-dark">Dark</button>
+    <button type="button" class="btn btn-link">Link</button> -->
+    <!-- <div class="container">
+      <div class="card">
+        <div class="card-header">
+          <img src="" alt="" />
+        </div>
+        <div class="card-body"></div>
+        <div class="card-footer"></div>
+      </div>
+    </div> -->
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Dropdown
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
+  </body>
+</html>
