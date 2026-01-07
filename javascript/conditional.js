@@ -9,11 +9,11 @@
 
 // console.log(age > 18 ? "can vote" : "cant vote");
 
-// let day = 2;
+// let marks=90;
 
 // switch (day) {
-//   case 1:
-//     console.log("monday");
+//   case 90:
+//     console.log("+");
 //     break;
 //   case 2:
 //     console.log("tuesday");
@@ -21,3 +21,6 @@
 //   default:
 //     console.log("invalid day");
 // }
+
+
+
