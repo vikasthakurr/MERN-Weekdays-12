@@ -6,18 +6,21 @@
     <title>Document</title>
   </head>
   <body>
-    <!-- <script src="script.js"></script> -->
-    <script>
-      function outer() {
-        let a = 10;
+    <button id="green">Green</button>
+    <button id="blue">Blue</button>
 
-        function inner() {
-          console.log(a);
-        }
-        return inner;
+    <script>
+      const green = (document.getElementById("green").onclick =
+        handleClick("green"));
+
+      const blue = (document.getElementById("blue").onclick =
+        handleClick("blue"));
+
+      function handleClick(color) {
+        return function () {
+          document.body.style.backgroundColor = color;
+        };
       }
-      let res = outer();
-      res();
     </script>
   </body>
 </html>
