@@ -59,7 +59,7 @@ function bye() {
   console.log("bye");
 }
 
-// sayHi("vikas", bye);
+sayHi("vikas", bye);
 // sayHi("vikas");
 // bye();
 
