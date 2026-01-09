@@ -1,68 +1,48 @@
-// var a = 10;
-// function double(num) {
-//   return num * 2;
-// }
-// var res1 = double(5);
-// console.log(res1);
-// var res2 = double(a);
-// console.log(res2);
+/*
+  ==============================================================
+  JAVASCRIPT EXECUTION CONTEXT & MEMORY MANAGEMENT
+  ==============================================================
 
-// var value = 20;
+  1. GLOBAL EXECUTION CONTEXT (GEC)
+  --------------------------------------------------------------
+  - The default environment where JS code runs.
+  - Consists of two phases:
+    a) Creation Phase: Memory is allocated for variables (var = undefined, 
+       functions = whole definition).
+    b) Execution Phase: Variables are assigned values and functions 
+       are executed.
 
-// function abc(num) {
-//   var value = 30;
-//   return num * 2;
-//   console.log(value);
-// }
+  2. CALL STACK
+  --------------------------------------------------------------
+  - JS uses a Call Stack to track function execution (LIFO - Last In, First Out).
+  - GEC is at the bottom; each function call creates a new Execution Context 
+    pushed onto the stack.
 
-// var res1 = abc(40);
-// console.log(res1);
-// var res2 = abc(value);
-// console.log(res2);
-// console.log(value);
-// // console.log(a);
-// console.log(abc);
+  3. PRIMITIVE vs REFERENCE TYPES (Stack vs Heap)
+  --------------------------------------------------------------
+  - Primitives (String, Number, Boolean, null, undefined, Symbol, BigInt):
+    - Stored directly in the CALL STACK.
+    - Assignment/Copying creates a NEW value (Copy by Value).
+  - Reference Types (Objects, Arrays, Functions):
+    - Stored in the HEAP memory.
+    - The STACK only holds a pointer (reference) to the Heap address.
+    - Assignment/Copying copies the pointer (Copy by Reference).
+*/
 
-// // var a = 10;
-// function abc() {
-//   return "hi";
-// }
+// --- PRIMITIVE TYPE EXAMPLE (Copy by Value) ---
+let a = 10;
+let b = a; // 'b' gets a fresh copy of 10
+b = 30;
+// console.log(a); // Still 10
+// console.log(b); // 30
 
-// var a = 10;
-// a = 30;
-// function abc() {
-//   var a = 40;
-// }
-// console.log(a);
-// {
-//   let a = 10;
-// }
-// const a = 10;
-// const a = 20;
-// console.log(a);
-
-// let name = "vikas";
-// let salary = 12345.3456;
-// let bigNumber = 12345671234562345671234567345678234567234567812345678234567891234567812345678912345678912345678923456789012345678903456789012345678;
-// let isMarried = false;
-// let value = undefined;
-// let res = null;
-// let res = [1, 2, 3, 4];
-// let res = {};
-// function res() {}
-// console.log(typeof res);
-
-// let a = 10;
-// let b = a;
-// b = 30;
-// console.log(a);
-
+// --- REFERENCE TYPE EXAMPLE (Copy by Reference) ---
 let obj1 = {
   name: "vikas",
 };
 
-// let name= fname:vikas,
-let obj2 = obj1;
-obj2.name = "akash";
-console.log(obj2);
-console.log(obj1);
+let obj2 = obj1; // 'obj2' points to the same object in Heap as 'obj1'
+obj2.name = "akash"; // Modifying through 'obj2' affects 'obj1'
+
+console.log(obj2); // { name: 'akash' }
+console.log(obj1); // { name: 'akash' }

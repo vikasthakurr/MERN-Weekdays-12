@@ -6,21 +6,12 @@
     <title>Document</title>
   </head>
   <body>
-    <button id="green">Green</button>
-    <button id="blue">Blue</button>
-
-    <script>
-      const green = (document.getElementById("green").onclick =
-        handleClick("green"));
-
-      const blue = (document.getElementById("blue").onclick =
-        handleClick("blue"));
-
-      function handleClick(color) {
-        return function () {
-          document.body.style.backgroundColor = color;
-        };
-      }
-    </script>
+    <div
+      role="progressbar"
+      aria-valuenow="30"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    >hii</div>
   </body>
 </html>
+w
