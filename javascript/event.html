@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">click me</button>
+
+    <script>
+      /*
+        JAVASCRIPT EVENTS
+        - Events are "signals" that something has happened in the browser.
+        - Examples: A button was clicked, a page finished loading, an input field changed.
+
+        EVENT LISTENERS
+        - addEventListener(event, function): The modern way to handle events.
+        - It takes the event name (e.g., 'click') and a callback function.
+
+        THE EVENT OBJECT (e)
+        - When an event occurs, the browser creates an "event object".
+        - This object contains details about the event (e.g., which element was clicked, mouse coordinates).
+        - Commonly used properties:
+            - e.target: The element that triggered the event.
+            - e.type: The type of event (e.g., 'click').
+
+        COMMON EVENT TYPES
+        1. Mouse Events: 'click', 'dblclick', 'mouseover', 'mouseout', 'mousedown', 'mouseup'.
+        2. Keyboard Events: 'keydown', 'keyup', 'keypress'.
+        3. Form Events: 'submit', 'change', 'input', 'focus', 'blur'.
+        4. Window Events: 'load', 'resize', 'scroll', 'unload'.
+
+        EVENT PROPAGATION
+        - Bubbling: The event starts from the target element and bubbles up to its parents (default).
+        - Capturing: The event starts from the window and goes down to the target element.
+
+        EVENT METHODS
+        1. e.preventDefault(): Cancels the event's default action (e.g., preventing a form from submitting).
+        2. e.stopPropagation(): Prevents the event from bubbling up the DOM tree.
+      */
+      const btn = document.querySelector("#btn");
+      btn.addEventListener("click", function (e) {
+        alert("bttn clicked");
+        console.log(e);
+      });
+    </script>
+  </body>
+</html>

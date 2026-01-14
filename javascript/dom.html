@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 300px;
+        height: 300px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <h1 class="heading-1">this is heading</h1>
+    <h1 class="heading-1">this is heading-1</h1>
+    <p id="para-1">this is para</p>
+    <span class="span-1">this is span</span>
+    <img
+      src="https://images.pexels.com/photos/15011349/pexels-photo-15011349.jpeg"
+      alt=""
+      width="300px"
+    /> -->
+
+    <!-- <div class="parent">
+      <p>item-1</p>
+      <p>item-2</p>
+      <p>item-3</p>
+      <p>item-4</p>
+    </div> -->
+
+    <script>
+      /*
+        DOCUMENT OBJECT MODEL (DOM)
+        - The DOM is a programming interface for web documents.
+        - It represents the page so that programs can change the document structure, style, and content.
+        - The DOM represents the document as nodes and objects; that way, programming languages can interact with the page.
+
+        HIERARCHICAL TREE STRUCTURE
+        - The DOM represents an HTML document as a tree-like structure (DOM Tree).
+        - Root: <html> element.
+        - Parents, Children, and Siblings: Elements are nested, forming relationships.
+
+        COMMON DOM SELECTION METHODS
+        1. document.getElementById('id'): Selects a single element by its ID.
+        2. document.getElementsByClassName('class'): Selects a collection of elements by class name.
+        3. document.getElementsByTagName('tag'): Selects a collection of elements by tag name.
+        4. document.querySelector('.selector'): Selects the first element that matches a CSS selector.
+        5. document.querySelectorAll('.selector'): Selects all elements that match a CSS selector (returns a NodeList).
+
+        DOM MANIPULATION METHODS
+        1. document.createElement('tagName'): Creates a new element node.
+        2. parentElement.appendChild(newElement): Adds a child node to the end of the parent.
+        3. element.remove(): Removes the element from the DOM.
+        4. element.setAttribute('name', 'value'): Sets the value of an attribute on the specified element.
+        5. element.getAttribute('name'): Returns the value of a specified attribute.
+
+        CONTENT AND STYLING
+        1. element.innerText / element.textContent: Gets or sets the text content.
+        2. element.innerHTML: Gets or sets the HTML content within an element.
+        3. element.style.property = 'value': Inline styling (e.g., .style.color = 'red').
+        4. element.classList.add('className'): Adds a class to the element.
+        5. element.classList.remove('className'): Removes a class from the element.
+
+        DOM TRAVERSAL (NAVIGATING THE TREE)
+        1. element.parentNode: Returns the parent node of the specified element.
+        2. element.parentElement: Returns the parent element of the specified element.
+        3. element.childNodes: Returns a collection of a node's child nodes (including text and comment nodes).
+        4. element.children: Returns a collection of an element's child elements (ignores text/comments).
+        5. element.firstChild / element.lastChild: Returns the first/last child node.
+        6. element.firstElementChild / element.lastElementChild: Returns the first/last child element.
+        7. element.nextSibling / element.previousSibling: Returns the next/previous sibling node.
+        8. element.nextElementSibling / element.previousElementSibling: Returns the next/previous sibling element.
+      */
+      const container = document.querySelector(".parent");
+      const child = container.lastElementChild;
+      console.log(child);
+      //   const res = document.getElementsByTagName("h1");
+      //   const res = document.getElementsByClassName("heading-1");
+      //   const res = document.getElementById("heading-1");
+      //   const res = document.querySelectorAll(".heading-1");
+      //   console.log(res);
+
+      //   const heading2 = document.createElement("h2");
+      //   heading2.innerText = "this is heading-2";
+      //   document.body.appendChild(heading2);
+      //   console.log(heading2);
+
+      //   const container = document.createElement("div");
+      //   container.classList.add("box");
+      //   document.body.appendChild(container);
+
+      //   const image = document.createElement("img");
+      //   image.src =
+      //     "https://images.pexels.com/photos/15011349/pexels-photo-15011349.jpeg";
+      //   image.style.width = "300px";
+      //   image.style.height = "300px";
+      //   document.body.appendChild(image);
+
+      //   const image = document.querySelector("img");
+      //   image.setAttribute(
+      //     "src",
+      //     "https://images.pexels.com/photos/34888412/pexels-photo-34888412.jpeg"
+      //   );
+      //   image.setAttribute("alt", " this image have butterfly");
+      //   console.log(image);
+    </script>
+  </body>
+</html>
