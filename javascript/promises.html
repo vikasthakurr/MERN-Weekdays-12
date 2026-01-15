@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * JavaScript Promises
+       *
+       * 1. What is a Promise?
+       * A Promise is an object representing the eventual completion (or failure)
+       * of an asynchronous operation and its resulting value.
+       *
+       * 2. Promise States:
+       * - Pending: Initial state, neither fulfilled nor rejected.
+       * - Fulfilled (Resolved): The operation completed successfully.
+       * - Rejected: The operation failed.
+       *
+       * 3. Handling Promises:
+       * - .then(): Runs when the promise is fulfilled.
+       * - .catch(): Runs when the promise is rejected.
+       * - .finally(): Runs regardless of the outcome (settled).
+       */
+
+      // Example Case: Simple Promise handling
+      let Promise1 = Promise.reject("data not found");
+      Promise1.then(() => console.log("good"))
+        .catch((err) => console.log(err)) // Outputs: data not found
+        .finally(() => console.log("mera kam khtm"));
+
+      /**
+       * 4. Static Promise Methods:
+       *
+       * - Promise.all([p1, p2, p3]): Waits for all promises to resolve. If ANY reject, it rejects immediately.
+       * - Promise.allSettled([p1, p2, p3]): Waits for all promises to settle (either resolve or reject).
+       * - Promise.race([p1, p2, p3]): Returns as soon as the first promise in the array settles.
+       * - Promise.any([p1, p2, p3]): Returns as soon as the first promise resolves. Rejects only if ALL reject.
+       */
+
+      let p1 = Promise.reject("data 1 not found");
+      let p2 = Promise.resolve("data 2 found");
+      let p3 = Promise.resolve("data 3 found");
+
+      Promise.any([p1, p2, p3])
+        .then((data) => {
+          console.log("Promise.any result:", data); // Outputs: data 2 found
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+      /**
+       * 5. Promise Chaining
+       * Used to execute asynchronous tasks in sequence.
+       */
+      function makeMaggi() {
+        return Promise.resolve("Maggi process started");
+      }
+      function waterBoil() {
+        return Promise.resolve("Water boiled");
+      }
+      function addmasala() {
+        return Promise.resolve("Masala added");
+      }
+      function serving() {
+        return Promise.resolve("Serving Maggi");
+      }
+
+      makeMaggi()
+        .then(() => waterBoil())
+        .then(() => addmasala())
+        .then(() => serving())
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+
+      /**
+       * 6. Async/Await:
+       * Syntactic sugar for promises, making asynchronous code look synchronous.
+       * (Example not shown here but widely used with these concepts).
+       */
+    </script>
+  </body>
+</html>

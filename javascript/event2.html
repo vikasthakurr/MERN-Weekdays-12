@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .grandparent {
+        width: 600px;
+        height: 600px;
+        background-color: rebeccapurple;
+      }
+      .parent {
+        width: 300px;
+        height: 300px;
+        background-color: red;
+      }
+      .child {
+        width: 150px;
+        height: 150px;
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grandparent">
+      grandparent
+      <div class="parent">
+        parent
+        <div class="child">child</div>
+      </div>
+    </div>
+    <script>
+      /**
+       * JavaScript Events and Event Propagation
+       *
+       * 1. Event Listeners:
+       * use addEventListener() to attach an event handler to an element.
+       * Syntax: element.addEventListener(event, function, useCapture);
+       *
+       * 2. Event Object (e):
+       * When an event occurs, the browser creates an event object containing details about the event.
+       * - e.target: The element that triggered the event.
+       * - e.type: The type of event (e.g., "click").
+       * - e.clientX / e.clientY: Mouse coordinates relative to the viewport.
+       *
+       * 3. Event Propagation:
+       * - Bubbling (Default): Event starts from the target element and moves up to the ancestors.
+       * - Capturing: Event starts from the root/ancestors and moves down to the target element.
+       *   (Enabled by passing { capture: true } or true as the third argument).
+       *
+       * 4. e.stopPropagation():
+       * Prevents the event from moving further up (bubbling) or down (capturing) the DOM tree.
+       *
+       * 5. Event Delegation:
+       * Instead of adding event listeners to every single child element, we add ONE listener to the parent.
+       * We then use e.target to identify which child was clicked.
+       * This is efficient and works for elements added to the DOM dynamically.
+       */
+
+      const grandparent = document.querySelector(".grandparent");
+      const parent = document.querySelector(".parent");
+      const child = document.querySelector(".child");
+
+      // --- Event Bubbling Example (Default behavior) ---
+      grandparent.addEventListener("click", (e) => {
+        console.log("grandparent was clicked");
+        // e.stopPropagation();
+      });
+
+      parent.addEventListener("click", (e) => {
+        console.log("parent was clicked");
+      });
+
+      child.addEventListener("click", (e) => {
+        console.log("child was clicked");
+      });
+
+      // --- Event Delegation Example ---
+      // We can listen on the grandparent for clicks on any of its children
+      grandparent.addEventListener("click", (e) => {
+        if (e.target.classList.contains("child")) {
+          console.log(
+            "Delegated click: Child element handled by Grandparent listener"
+          );
+        }
+        if (e.target.classList.contains("parent")) {
+          console.log(
+            "Delegated click: Parent element handled by Grandparent listener"
+          );
+        }
+      });
+
+      /**
+       * 6. e.preventDefault():
+       * Used to cancel the default action that belongs to the event.
+       *
+       * 7. Event Capturing Example:
+       * grandparent.addEventListener("click", (e) => { ... }, true);
+       */
+    </script>
+  </body>
+</html>
