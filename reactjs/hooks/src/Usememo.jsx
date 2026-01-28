@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useMemo } from "react";
 import { useState } from "react";
 import Child from "./Child";
 
 const Usememo = () => {
   const [count, setCount] = useState(0);
+  // const [count2, setCount2] = useState(0);
+
+  // function handleClick2() {
+  //   setCount2(count2 + 1);
+  // }
   function handleClick() {
     setCount(count + 1);
   }
@@ -22,6 +27,9 @@ const Usememo = () => {
   function sayHi() {
     console.log("hi");
   }
+
+  const memoizedSayHi = useCallback(() => sayHi, []);
+
   return (
     <div>
       <h1>the result of sum :{res}</h1>
@@ -29,7 +37,9 @@ const Usememo = () => {
       <button onClick={handleClick}>Change</button>
 
       <br />
-      <Child sayHi={sayHi} />
+      <br></br>
+      {/* <button onClick={handleClick2}>Change2</button> */}
+      <Child sayHi={memoizedSayHi} />
     </div>
   );
 };
