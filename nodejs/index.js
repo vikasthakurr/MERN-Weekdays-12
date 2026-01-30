@@ -448,8 +448,8 @@ import fs from "fs";
 //     return name
 // }
 
-let name;
+// let name;
 
-function abc() {
-  return 2;
-}
+// function abc() {
+//   return 2;
+// }
