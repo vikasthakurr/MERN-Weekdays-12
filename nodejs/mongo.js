@@ -30,6 +30,7 @@
 import express from "express";
 import mongoose from "mongoose"; // Importing Mongoose to interact with MongoDB
 import bcrypt from "bcryptjs"; // Importing Bcrypt for password hashing
+import jwt from "jsonwebtoken";
 
 const PORT = 3000;
 
@@ -52,7 +53,7 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-  //hi
+//hi
 
 // ----------------------------------------------------------------------------
 // Define Schema:
@@ -105,16 +106,87 @@ app.post("/register", async (req, res) => {
   res.status(201).send({ message: "user created successfully" });
 });
 
+app.post("/login", async (req, res) => {
+  let email = req.body.email;
+  let password = req.body.password;
+  let secret = "vikaskumar";
+  const user = await User.findOne({ email: email });
+  if (!user) return res.status(404).send({ message: "user not found" });
+
+  const isMatch = await bcrypt.compare(password, user.password);
+  if (!isMatch) return res.status(400).send({ message: "Invalid password" });
+
+  //token assign
+
+  const token = jwt.sign(
+    {
+      email: user.email,
+      id: user._id,
+    },
+    secret,
+  );
+  console.log(token);
+  res.status(200).send({ message: "Login successful" });
+});
 // Read (Get All Users):
-app.get("/allusers", async (req, res) => {
-  // User.find() retrieves all documents from the 'users' collection
-  const users = await User.find();
+// app.get("/allusers", async (req, res) => {
+//   // User.find() retrieves all documents from the 'users' collection
+//   const users = await User.find();
 
-  if (!users) return res.status(404).send({ message: "No users found" });
+//   if (!users) return res.status(404).send({ message: "No users found" });
 
-  res.status(200).send(users);
+//   res.status(200).send(users);
+// });
+
+//update user
+
+const verifyToken = (req, res, next) => {
+  const authHeader = req.headers.authorization;
+  if (!authHeader || !authHeader.startsWith("Bearer")) {
+    return res
+      .status(401)
+      .json({ message: "access denied, no token availble" });
+  }
+  const token = authHeader.split(" ")[1];
+
+  try {
+    const decoded = jwt.verify(token, "vikaskumar");
+    req.user = decoded;
+    next();
+  } catch (err) {
+    res.status(401).json({ message: "invalid token" });
+  }
+};
+app.get("/userlist", verifyToken, async (req, res) => {
+  try {
+    const users = await User.find();
+    res.status(200).json(users);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 });
 
+app.put("/update/:id", async (req, res) => {
+  try {
+    const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    if (!user) return res.status(404).send({ message: "user not found" });
+    res.status(200).send(user);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+app.delete("/delete/:id", async (req, res) => {
+  try {
+    const user = await User.findByIdAndDelete(req.params.id);
+    if (!user) return res.status(404).send({ message: "user not found" });
+    res.status(200).send(user);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
 app.get("/", (req, res) => {
   res.end("hii");
 });
