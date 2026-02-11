@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import AuthController from "./controllers/AuthController.js";
+import OrderController from "./controllers/OrderController.js";
 import cors from "cors";
 dotenv.config();
 
@@ -23,6 +24,9 @@ mongoose
 //auth controller
 
 app.use("/api/auth", AuthController);
+
+//controller for orders
+app.use("/api/orders", OrderController);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
