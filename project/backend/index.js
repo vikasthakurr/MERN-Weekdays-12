@@ -1,8 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
-import mongoose from "mongoose";
 import AuthController from "./controllers/AuthController.js";
 import OrderController from "./controllers/OrderController.js";
+import connectDB from "./controllers/dbController.js";
 import cors from "cors";
 dotenv.config();
 
@@ -12,15 +12,8 @@ app.use(express.urlencoded({ extended: true }));
 const PORT = process.env.PORT || 3000;
 app.use(cors());
 
-mongoose
-  .connect(process.env.MONGODB_URI)
-  .then(() => {
-    console.log("Connected to MongoDB");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-
+//mongo connection
+connectDB();
 //auth controller
 
 app.use("/api/auth", AuthController);
