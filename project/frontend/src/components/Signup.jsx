@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import Login from "./Login";
+import Login from "../components/Login";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
@@ -43,7 +43,7 @@ const Signup = () => {
       .then((response) => {
         console.log(response.data);
         login(response.data.user);
-        navigate("/");
+        navigate("/login");
       })
       .catch((error) => {
         console.error("Error:", error);

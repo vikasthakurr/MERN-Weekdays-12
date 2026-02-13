@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useAuth } from "../context/AuthContext";
 import { useSearch } from "../context/SearchContext";
+// Cart import removed
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const { totalQuantity } = useSelector((state) => state.cart);
   const { user, logout } = useAuth();
@@ -54,30 +56,19 @@ const Navbar = () => {
               </svg>
             </div>
 
-            <Link
-              to="/products"
-              className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-            >
-              Products
-            </Link>
-            <Link
-              to="#"
-              className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-            >
-              About
-            </Link>
-            <Link
-              to="#"
-              className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-            >
-              Contact
-            </Link>
+            {/* Links removed */}
 
             {user ? (
               <div className="flex items-center gap-4">
                 <span className="text-sm font-medium text-gray-700">
                   Hello, {user.username || user.email}
                 </span>
+                <Link
+                  to="/profile"
+                  className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
+                  Profile
+                </Link>
                 <button
                   onClick={logout}
                   className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer"
@@ -102,7 +93,10 @@ const Navbar = () => {
               </>
             )}
 
-            <button className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer">
+            <button
+              onClick={() => navigate("/cart")}
+              className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer"
+            >
               Cart ({totalQuantity})
             </button>
           </div>
@@ -165,31 +159,22 @@ const Navbar = () => {
             >
               Home
             </Link>
-            <Link
-              to="#"
-              className="block text-gray-700 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium"
-            >
-              Products
-            </Link>
-            <Link
-              to="#"
-              className="block text-gray-700 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium"
-            >
-              About
-            </Link>
-            <Link
-              to="#"
-              className="block text-gray-700 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium"
-            >
-              Contact
-            </Link>
+            {/* Mobile links removed */}
             {user ? (
-              <button
-                onClick={logout}
-                className="block w-full text-left text-gray-700 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium"
-              >
-                Logout
-              </button>
+              <>
+                <Link
+                  to="/profile"
+                  className="block w-full text-left text-gray-700 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Profile
+                </Link>
+                <button
+                  onClick={logout}
+                  className="block w-full text-left text-gray-700 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Logout
+                </button>
+              </>
             ) : (
               <>
                 <Link
@@ -207,7 +192,10 @@ const Navbar = () => {
               </>
             )}
             <div className="mt-4 pt-4 border-t border-gray-100">
-              <button className="w-full text-center bg-indigo-600 text-white px-4 py-2 rounded-md text-base font-medium hover:bg-indigo-700 transition-colors">
+              <button
+                onClick={() => navigate("/cart")}
+                className="w-full text-center bg-indigo-600 text-white px-4 py-2 rounded-md text-base font-medium hover:bg-indigo-700 transition-colors"
+              >
                 Cart ({totalQuantity})
               </button>
             </div>
