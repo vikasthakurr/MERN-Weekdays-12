@@ -5,9 +5,11 @@ import * as Yup from "yup";
 import axios from "axios";
 import Home from "../pages/Home";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -34,11 +36,12 @@ const Login = () => {
       .post("http://localhost:3000/api/auth/login", formik.values)
       .then((response) => {
         console.log(response.data);
+        login(response.data.user);
+        navigate("/");
       })
       .catch((error) => {
         console.error("Error:", error);
       });
-    navigate("../pages/Home.jsx");
   };
 
   return (

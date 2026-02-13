@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useAuth } from "../context/AuthContext";
+import { useSearch } from "../context/SearchContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { totalQuantity } = useSelector((state) => state.cart);
+  const { user, logout } = useAuth();
+  const { searchQuery, handleSearch } = useSearch();
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
@@ -24,8 +30,32 @@ const Navbar = () => {
             >
               Home
             </Link>
+            {/* Search Bar */}
+            <div className="flex-1 max-w-lg mx-8 relative">
+              <input
+                type="text"
+                placeholder="Search products..."
+                value={searchQuery}
+                onChange={(e) => handleSearch(e.target.value)}
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
+              />
+              <svg
+                className="w-5 h-5 text-gray-400 absolute left-3 top-2.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </div>
+
             <Link
-              to="#"
+              to="/products"
               className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
             >
               Products
@@ -43,21 +73,37 @@ const Navbar = () => {
               Contact
             </Link>
 
-            <Link
-              to="/login"
-              className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-            >
-              Login
-            </Link>
-            <Link
-              to="/signup"
-              className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-            >
-              Signup
-            </Link>
+            {user ? (
+              <div className="flex items-center gap-4">
+                <span className="text-sm font-medium text-gray-700">
+                  Hello, {user.username || user.email}
+                </span>
+                <button
+                  onClick={logout}
+                  className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/signup"
+                  className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
+                  Signup
+                </Link>
+              </>
+            )}
 
             <button className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer">
-              Cart (0)
+              Cart ({totalQuantity})
             </button>
           </div>
 
@@ -137,21 +183,32 @@ const Navbar = () => {
             >
               Contact
             </Link>
-            <Link
-              to="/login"
-              className="block text-gray-700 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium"
-            >
-              Login
-            </Link>
-            <Link
-              to="/signup"
-              className="block text-gray-700 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium"
-            >
-              Signup
-            </Link>
+            {user ? (
+              <button
+                onClick={logout}
+                className="block w-full text-left text-gray-700 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium"
+              >
+                Logout
+              </button>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="block text-gray-700 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/signup"
+                  className="block text-gray-700 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Signup
+                </Link>
+              </>
+            )}
             <div className="mt-4 pt-4 border-t border-gray-100">
               <button className="w-full text-center bg-indigo-600 text-white px-4 py-2 rounded-md text-base font-medium hover:bg-indigo-700 transition-colors">
-                Cart (0)
+                Cart ({totalQuantity})
               </button>
             </div>
           </div>

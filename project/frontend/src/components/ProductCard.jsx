@@ -1,6 +1,25 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, increase, decrease } from "../redux/slices/cartSlice";
 
 const ProductCard = ({ product }) => {
+  const dispatch = useDispatch();
+  const cartItem = useSelector((state) =>
+    state.cart.cartItems.find((item) => item.id === product.id),
+  );
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(product));
+  };
+
+  const handleIncrease = () => {
+    dispatch(increase(product.id));
+  };
+
+  const handleDecrease = () => {
+    dispatch(decrease(product.id));
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full border border-gray-100">
       <div className="relative pt-[100%] bg-gray-50 overflow-hidden group">
@@ -66,9 +85,32 @@ const ProductCard = ({ product }) => {
             </span>
           </div>
 
-          <button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-sm hover:shadow active:scale-95 transform">
-            Add to Cart
-          </button>
+          {cartItem ? (
+            <div className="flex items-center justify-between bg-indigo-50 rounded-md">
+              <button
+                onClick={handleDecrease}
+                className="w-10 h-10 flex items-center justify-center text-indigo-600 hover:bg-indigo-100 rounded-l-md transition-colors font-bold text-lg cursor-pointer"
+              >
+                -
+              </button>
+              <span className="text-gray-900 font-semibold">
+                {cartItem.quantity}
+              </span>
+              <button
+                onClick={handleIncrease}
+                className="w-10 h-10 flex items-center justify-center text-indigo-600 hover:bg-indigo-100 rounded-r-md transition-colors font-bold text-lg cursor-pointer"
+              >
+                +
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={handleAddToCart}
+              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-sm hover:shadow active:scale-95 transform"
+            >
+              Add to Cart
+            </button>
+          )}
         </div>
       </div>
     </div>

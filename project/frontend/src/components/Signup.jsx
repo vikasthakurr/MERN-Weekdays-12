@@ -1,13 +1,15 @@
 import React from "react";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import Login from "./Login";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const Signup = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -40,11 +42,12 @@ const Signup = () => {
       .post("http://localhost:3000/api/auth/register", formik.values)
       .then((response) => {
         console.log(response.data);
+        login(response.data.user);
+        navigate("/");
       })
       .catch((error) => {
         console.error("Error:", error);
       });
-    navigate(Login);
   };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
