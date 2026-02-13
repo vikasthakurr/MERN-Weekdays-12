@@ -20,8 +20,6 @@ app.use("/api/auth", AuthController);
 
 //controller for orders
 app.use("/api/orders", OrderController);
-import ProductController from "./controllers/ProductController.js";
-app.use("/api/products", ProductController);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");

@@ -1,28 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ProductCard from "../components/ProductCard";
-import { fetchProducts } from "../utils/api";
+import products from "../product-api/products";
 import { useSearch } from "../context/SearchContext";
 
 const Home = () => {
   const { searchQuery } = useSearch();
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const loadProducts = async () => {
-      try {
-        const data = await fetchProducts();
-        setProducts(data);
-        setLoading(false);
-      } catch {
-        setError("Failed to load products");
-        setLoading(false);
-      }
-    };
-
-    loadProducts();
-  }, []);
 
   const filteredProducts = products.filter((product) => {
     const query = searchQuery.toLowerCase();
@@ -32,22 +14,6 @@ const Home = () => {
       product.description.toLowerCase().includes(query)
     );
   });
-
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-500"></div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="text-red-500">{error}</div>
-      </div>
-    );
-  }
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
